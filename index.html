@@ -1,0 +1,524 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>kaja — Punto de venta para tu negocio</title>
+  <meta name="description" content="kaja es la caja registradora simple para kioscos, almacenes y comercios de mostrador: carga tu venta, cobrá y controlá tu stock sin vueltas.">
+  <link rel="icon" href="assets/icon.png">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&display=swap">
+  <style>
+    :root {
+      --ink: #1A1A1A;
+      --golden: #FFC93C;
+      --cream: #FFF8EC;
+      --card: #FFFFFF;
+      --green: #5FD34D;
+      --muted: #5A5A5A;
+      --nav-muted: #F4EBD8;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--cream);
+      color: var(--ink);
+      font-family: "Baloo 2", system-ui, sans-serif;
+      text-wrap: pretty;
+    }
+    a { color: var(--ink); }
+    a:hover { color: var(--muted); }
+    img { display: block; }
+
+    .wrap {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    .sticker {
+      background: var(--card);
+      border: 2.5px solid var(--ink);
+      border-radius: 18px;
+      box-shadow: 5px 5px 0 var(--ink);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: "Baloo 2", system-ui, sans-serif;
+      font-weight: 800;
+      font-size: 17px;
+      padding: 14px 26px;
+      border-radius: 999px;
+      border: 2.5px solid var(--ink);
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 4px 4px 0 var(--ink);
+      transition: transform 0.15s ease;
+    }
+    .btn:hover { transform: translate(-2px, -2px); }
+    .btn-primary { background: var(--golden); color: var(--ink); }
+    .btn-primary:hover { color: var(--ink); }
+    .btn-ghost { background: var(--card); color: var(--ink); }
+    .btn-ghost:hover { color: var(--ink); }
+
+    .placeholder-note {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      max-width: 420px;
+      margin-top: 14px;
+      padding: 12px 14px;
+      border: 2px dashed var(--muted);
+      border-radius: 12px;
+      background: rgba(90, 90, 90, 0.06);
+      font-size: 13px;
+      line-height: 1.5;
+      color: var(--muted);
+    }
+    .placeholder-note svg { flex: none; margin-top: 2px; }
+
+    header.site {
+      background: var(--golden);
+      border-bottom: 2.5px solid var(--ink);
+    }
+    .nav-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 20px 0;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .brand img {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      border: 2.5px solid var(--ink);
+    }
+    .brand span {
+      font-weight: 800;
+      font-size: 26px;
+      letter-spacing: -0.5px;
+    }
+
+    .hero {
+      padding: 76px 0 88px;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 56px;
+      align-items: center;
+    }
+    .eyebrow {
+      display: inline-block;
+      font-weight: 700;
+      font-size: 14px;
+      background: var(--green);
+      color: var(--ink);
+      border: 2px solid var(--ink);
+      border-radius: 999px;
+      padding: 6px 16px;
+      margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-size: clamp(38px, 5vw, 58px);
+      line-height: 1.05;
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin: 0 0 20px;
+    }
+    .hero p.lead {
+      font-size: 19px;
+      line-height: 1.6;
+      color: var(--muted);
+      max-width: 480px;
+      margin: 0 0 28px;
+    }
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+    }
+    .hero-visual img {
+      width: 100%;
+      max-width: 320px;
+      border-radius: 28px;
+      border: 3px solid var(--ink);
+      box-shadow: 8px 8px 0 var(--ink);
+    }
+
+    section { padding: 72px 0; }
+    .section-alt { background: var(--nav-muted); }
+    .section-head {
+      max-width: 620px;
+      margin: 0 0 44px;
+    }
+    .section-head h2 {
+      font-size: clamp(28px, 3.4vw, 38px);
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin: 0 0 12px;
+    }
+    .section-head p {
+      font-size: 17px;
+      color: var(--muted);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+    }
+    .benefit-card {
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .icon-badge {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      background: var(--cream);
+      border: 2.5px solid var(--ink);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .benefit-card h3 {
+      font-size: 20px;
+      font-weight: 800;
+      margin: 0;
+    }
+    .benefit-card p {
+      font-size: 15.5px;
+      line-height: 1.55;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .invoice-banner {
+      padding: 40px;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 28px;
+      align-items: center;
+    }
+    .invoice-icon {
+      width: 68px;
+      height: 68px;
+      border-radius: 16px;
+      background: var(--nav-muted);
+      border: 2.5px solid var(--ink);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: none;
+    }
+    .badge-soon {
+      display: inline-block;
+      font-size: 12.5px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+      background: var(--cream);
+      border: 2px solid var(--muted);
+      color: var(--muted);
+      border-radius: 999px;
+      padding: 4px 12px;
+      margin-bottom: 10px;
+    }
+    .invoice-banner h3 {
+      font-size: 22px;
+      font-weight: 800;
+      margin: 0 0 8px;
+    }
+    .invoice-banner p {
+      font-size: 15.5px;
+      line-height: 1.6;
+      color: var(--muted);
+      margin: 0;
+      max-width: 560px;
+    }
+
+    .shots-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 32px;
+    }
+    .shot-card {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      align-items: center;
+      text-align: center;
+    }
+    .shot-card img {
+      width: 100%;
+      max-width: 260px;
+      border-radius: 20px;
+      border: 3px solid var(--ink);
+      box-shadow: 6px 6px 0 var(--ink);
+    }
+    .shot-card h4 {
+      font-size: 17px;
+      font-weight: 800;
+      margin: 0;
+    }
+    .shot-card p {
+      font-size: 14.5px;
+      color: var(--muted);
+      margin: 0;
+      max-width: 280px;
+    }
+
+    .audience-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 28px;
+    }
+    .audience-tag {
+      font-weight: 700;
+      font-size: 15px;
+      padding: 10px 20px;
+      border-radius: 999px;
+      border: 2.5px solid var(--ink);
+      background: var(--card);
+    }
+
+    .final-cta {
+      text-align: center;
+      padding: 88px 0 96px;
+    }
+    .final-cta h2 {
+      font-size: clamp(30px, 4vw, 44px);
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin: 0 0 16px;
+    }
+    .final-cta p.lead {
+      font-size: 17px;
+      color: var(--muted);
+      max-width: 480px;
+      margin: 0 auto 32px;
+      line-height: 1.6;
+    }
+    .final-cta .placeholder-note { margin: 18px auto 0; }
+    .final-cta-actions {
+      display: flex;
+      justify-content: center;
+    }
+
+    footer.site {
+      border-top: 2.5px solid var(--ink);
+      padding: 32px 0;
+    }
+    .footer-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      font-size: 18px;
+    }
+    .footer-brand img {
+      width: 28px;
+      height: 28px;
+      border-radius: 7px;
+      border: 2px solid var(--ink);
+    }
+    footer.site p {
+      margin: 0;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    @media (max-width: 860px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+      .hero-visual { order: -1; }
+      .benefits-grid { grid-template-columns: 1fr; }
+      .shots-grid { grid-template-columns: 1fr; }
+      .invoice-banner { grid-template-columns: 1fr; text-align: left; }
+    }
+    @media (max-width: 560px) {
+      .wrap { padding: 0 20px; }
+      .nav-row { padding: 16px 0; }
+      .brand span { font-size: 22px; }
+      .hero { padding: 48px 0 56px; }
+      section { padding: 52px 0; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap nav-row">
+    <div class="brand">
+      <img src="assets/icon.png" alt="Logo de kaja">
+      <span>kaja</span>
+    </div>
+    <a class="btn btn-ghost" href="#contacto">Quiero probar kaja</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">Punto de venta para tu negocio</span>
+      <h1>La caja registradora para tu kiosco, sin vueltas.</h1>
+      <p class="lead">
+        Cargá el carrito, cobrá en segundos y controlá tu stock — liviana,
+        rápida y sin vueltas. Pensada para el día a día de kioscos,
+        almacenes y comercios de mostrador.
+      </p>
+      <a class="btn btn-primary" href="#contacto">Quiero probar kaja</a>
+      <div class="placeholder-note">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+        <span>Placeholder: reemplazar por el enlace real de contacto (WhatsApp o formulario).</span>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <img src="assets/screenshot-venta.png" alt="Pantalla de venta de kaja mostrando un carrito y el botón Cobrar">
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Todo lo que necesitás para vender, en una pantalla.</h2>
+      <p>Sin menús escondidos, sin configuraciones eternas: botones grandes y todo a la vista.</p>
+    </div>
+    <div class="benefits-grid">
+      <div class="sticker benefit-card">
+        <div class="icon-badge">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8Z"/></svg>
+        </div>
+        <h3>Cobrá en segundos</h3>
+        <p>Tocá los productos que ya tenés cargados y armá el carrito al instante. Sin buscar entre menús, sin perder tiempo con el cliente esperando.</p>
+      </div>
+      <div class="sticker benefit-card">
+        <div class="icon-badge">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8v8l9 5 9-5V8Z"/><path d="M3 8l9 5 9-5"/><path d="M12 13v8"/></svg>
+        </div>
+        <h3>Nunca te quedes sin stock</h3>
+        <p>El stock disponible de cada producto se descuenta solo con cada venta, y lo ves en todo momento desde la pantalla de Stock.</p>
+      </div>
+      <div class="sticker benefit-card">
+        <div class="icon-badge">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="14" rx="2"/><path d="M3 10h18"/><path d="M7 15h4"/></svg>
+        </div>
+        <h3>Cobrá con terminal de pago</h3>
+        <p>kaja despierta tu Fpinpad por red y consulta sola el resultado de la transacción — configurás terminal, System ID e IP una sola vez.</p>
+      </div>
+      <div class="sticker benefit-card">
+        <div class="icon-badge">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 5 3.4 8.7 8 9 4.6-.3 8-4 8-9V6l-8-3Z"/><path d="m9.5 12 1.8 1.8L15 10"/></svg>
+        </div>
+        <h3>Ninguna venta te deja colgado</h3>
+        <p>Si una venta falla o el pago no se acredita, kaja revierte el descuento de stock automáticamente. Nunca te queda un producto de menos por una venta que no se concretó.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-alt">
+  <div class="wrap">
+    <div class="sticker invoice-banner">
+      <div class="invoice-icon">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h8l4 4v14H7z"/><path d="M15 3v4h4"/><path d="M9 13h6"/><path d="M9 17h6"/></svg>
+      </div>
+      <div>
+        <span class="badge-soon">Próximamente</span>
+        <h3>Facturación electrónica</h3>
+        <p>
+          Estamos trabajando para que kaja también emita tu factura
+          electrónica automáticamente al cobrar. Todavía no está
+          disponible: hoy kaja resuelve stock, ventas y cobro con terminal,
+          y la facturación se suma en una próxima actualización.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Así se ve kaja por dentro.</h2>
+      <p>Pantallas simples pensadas para el mostrador, no para un manual de usuario.</p>
+    </div>
+    <div class="shots-grid">
+      <div class="shot-card">
+        <img src="assets/screenshot-buscador.png" alt="Buscador de productos de kaja">
+        <h4>Buscá productos al toque</h4>
+        <p>Cuando el mostrador tiene mucha variedad, encontrá cualquier producto por nombre en un segundo.</p>
+      </div>
+      <div class="shot-card">
+        <img src="assets/screenshot-stock.png" alt="Pantalla de stock de kaja">
+        <h4>Controlá tu stock sin planillas</h4>
+        <p>Agregá, editá y eliminá productos con su precio y stock, todo desde la pantalla de Stock.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-alt">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Hecha para el comercio chico del día a día.</h2>
+      <p>
+        kaja está pensada para el mostrador real: pantallas simples,
+        botones grandes y todo lo que necesitás a la vista, sin menús
+        escondidos.
+      </p>
+      <div class="audience-row">
+        <span class="audience-tag">Kioscos</span>
+        <span class="audience-tag">Almacenes</span>
+        <span class="audience-tag">Comercios de mostrador</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="final-cta" id="contacto">
+  <div class="wrap">
+    <h2>¿Listo para vender más rápido?</h2>
+    <p class="lead">Contanos sobre tu comercio y te ayudamos a poner kaja a andar en tu mostrador.</p>
+    <div class="final-cta-actions">
+      <a class="btn btn-primary" href="#contacto">Quiero probar kaja</a>
+    </div>
+    <div class="placeholder-note" style="margin-left: auto; margin-right: auto; text-align: left;">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+      <span>Placeholder: enlace de contacto (WhatsApp o formulario) a definir.</span>
+    </div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap footer-row">
+    <div class="footer-brand">
+      <img src="assets/icon.png" alt="Logo de kaja">
+      <span>kaja</span>
+    </div>
+    <p>&copy; 2026 kaja &mdash; Punto de venta para tu negocio.</p>
+  </div>
+</footer>
+
+</body>
+</html>
