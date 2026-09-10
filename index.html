@@ -302,6 +302,15 @@
       max-width: 280px;
     }
 
+    .feature-shots .shot-card img {
+      max-width: 100%;
+      border-radius: 14px;
+      box-shadow: 5px 5px 0 var(--ink);
+    }
+    .feature-shots .shot-card p {
+      max-width: 380px;
+    }
+
     .audience-row {
       display: flex;
       flex-wrap: wrap;
@@ -470,13 +479,26 @@
         <h3>Un panel con todas tus terminales y ventas</h3>
         <p>
           Cada venta y cada terminal se reportan solas a tu back-office web:
-          total vendido, ventas aprobadas y rechazadas, y qué terminales
-          están activas hoy — todo en una pantalla, sin pedir el cierre de
-          caja por WhatsApp.
+          total vendido, ventas aprobadas y rechazadas, qué terminales están
+          activas hoy, qué productos se vendieron en cada ticket y cuánto
+          stock le queda a cada una de tus cajas — todo en una pantalla, sin
+          pedir el cierre de caja por WhatsApp.
         </p>
       </div>
     </div>
     <img class="backoffice-shot" src="assets/screenshot-backoffice.png" alt="Panel de kaja-bo mostrando total vendido, ventas aprobadas y rechazadas, y el gráfico de ventas por día">
+    <div class="shots-grid feature-shots" style="margin-top: 32px;">
+      <div class="shot-card">
+        <img src="assets/screenshot-articulos.png" alt="Tabla de transacciones de kaja-bo mostrando los artículos vendidos en cada ticket">
+        <h4>Sabé qué se vendió en cada ticket</h4>
+        <p>Cada venta reportada trae el detalle de productos y cantidades, no solo el total cobrado.</p>
+      </div>
+      <div class="shot-card">
+        <img src="assets/screenshot-stock-terminal.png" alt="Tabla de stock por terminal en el panel de kaja-bo">
+        <h4>Mirá el stock de cada terminal</h4>
+        <p>Cada caja reporta su stock actual, para que veas de un vistazo qué le queda a cada una sin ir a preguntar.</p>
+      </div>
+    </div>
   </div>
 </section>
 
