@@ -195,20 +195,13 @@
     /* ---------- console ---------- */
     .console { background: var(--golden); border-top: 2.5px solid var(--ink); border-bottom: 2.5px solid var(--ink); }
     .console .section-head p { color: var(--ink); }
-    .tabs { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 22px; }
-    .tab {
-      font: 700 15px "Baloo 2", system-ui, sans-serif;
-      padding: 7px 16px; border-radius: 999px;
-      border: 2.5px solid var(--ink); background: var(--cream); color: var(--ink);
-      cursor: pointer;
-    }
-    .tab[aria-selected="true"] { background: var(--ink); color: var(--golden); }
-    .viewer { display: grid; grid-template-columns: 1.6fr 1fr; gap: 28px; align-items: start; }
-    .viewer .browser img { width: 100%; }
-    .viewer-copy { padding: 26px; }
-    .viewer-copy h3 { font-size: 26px; margin: 10px 0 10px; }
-    .viewer-copy p { font-size: 16px; line-height: 1.6; color: var(--muted); }
-    .viewer-copy ul { margin: 14px 0 0; padding-left: 20px; display: grid; gap: 6px; font-size: 15px; line-height: 1.45; }
+    .console-shots { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+    .console-shot { margin: 0; }
+    .console-shot .browser img { width: 100%; }
+    .console-shot figcaption { padding: 14px 4px 0; }
+    .console-shot h4 { font-size: 18px; display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+    .console-shot .pill { font-size: 11px; padding: 3px 10px; }
+    .console-shot p { font-size: 14.5px; line-height: 1.5; color: var(--muted); }
 
     .modules { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 44px; }
     .module { padding: 18px 20px; box-shadow: 4px 4px 0 var(--ink); }
@@ -270,8 +263,7 @@
       .stats-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
       .pillars, .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .phones { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-      .feature-list, .modules { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .viewer { grid-template-columns: 1fr; }
+      .feature-list, .modules, .console-shots { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .spec-cols { grid-template-columns: 1fr; }
     }
     @media (max-width: 860px) {
@@ -285,7 +277,7 @@
       section { padding: 60px 0; }
       .hero { padding: 40px 0 64px; }
       .stats-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 16px; }
-      .pillars, .steps, .feature-list, .modules { grid-template-columns: 1fr; }
+      .pillars, .steps, .feature-list, .modules, .console-shots { grid-template-columns: 1fr; }
       .phones { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
       .banner { padding: 24px; }
       .cta { padding: 44px 20px; }
@@ -559,38 +551,37 @@
       <p>Cada caja reporta sola sus ventas, su stock y su estado. Vos mirás, decidís y operás desde el panel, sin pedir el cierre de caja por WhatsApp.</p>
     </div>
 
-    <div class="tabs" role="tablist" aria-label="Módulos de la consola">
-      <button class="tab" role="tab" aria-selected="true" data-i="0">Ventas</button>
-      <button class="tab" role="tab" aria-selected="false" data-i="1">Productos</button>
-      <button class="tab" role="tab" aria-selected="false" data-i="2">Stock</button>
-      <button class="tab" role="tab" aria-selected="false" data-i="3">Sucursales</button>
-      <button class="tab" role="tab" aria-selected="false" data-i="4">Cajeros</button>
-      <button class="tab" role="tab" aria-selected="false" data-i="5">Cobrar</button>
-      <button class="tab" role="tab" aria-selected="false" data-i="6">UCFE</button>
-    </div>
-    <div class="viewer" role="tabpanel" aria-live="polite">
-      <div class="browser">
-        <div class="browser-bar"><i></i><i></i><i></i><span id="viewerUrl">kaja-bo · Ventas</span></div>
-        <img id="viewerImg" src="assets/screenshot-backoffice.png" alt="">
-      </div>
-      <div class="sticker viewer-copy">
-        <span class="pill" id="viewerPill">Control</span>
-        <h3 id="viewerTitle"></h3>
-        <p id="viewerText"></p>
-        <ul id="viewerList"></ul>
-      </div>
+    <div class="console-shots">
+      <figure class="console-shot">
+        <div class="browser"><div class="browser-bar"><i></i><i></i><i></i><span>kaja-bo · Ventas</span></div><img src="assets/screenshot-backoffice.png" alt="Panel de ventas de kaja-bo con total vendido, aprobadas, rechazadas y el gráfico de ventas por día"></div>
+        <figcaption><h4>Ventas <span class="pill">Control</span></h4><p>Total vendido, aprobadas y rechazadas, gráfico por día y detalle de cada ticket. Se actualiza sola cada 10 segundos.</p></figcaption>
+      </figure>
+      <figure class="console-shot">
+        <div class="browser"><div class="browser-bar"><i></i><i></i><i></i><span>kaja-bo · Productos</span></div><img src="assets/screenshot-productos.jpg" alt="Catálogo de productos y precios en el panel de kaja-bo"></div>
+        <figcaption><h4>Productos <span class="pill">Facilidad</span></h4><p>Cargás productos y precios una sola vez; cada terminal los sincroniza sola, sin tocar precios en el mostrador.</p></figcaption>
+      </figure>
+      <figure class="console-shot">
+        <div class="browser"><div class="browser-bar"><i></i><i></i><i></i><span>kaja-bo · Stock</span></div><img src="assets/screenshot-stock-terminal.png" alt="Tabla de stock por terminal en el panel de kaja-bo"></div>
+        <figcaption><h4>Stock <span class="pill">Control</span></h4><p>El stock actual de cada producto en cada terminal, filtrable por sucursal.</p></figcaption>
+      </figure>
+      <figure class="console-shot">
+        <div class="browser"><div class="browser-bar"><i></i><i></i><i></i><span>kaja-bo · Sucursales</span></div><img src="assets/screenshot-sucursales.png" alt="Panel de sucursales de kaja-bo"></div>
+        <figcaption><h4>Sucursales <span class="pill">Versatilidad</span></h4><p>Agrupás las terminales por sucursal y filtrás ventas y stock por cada local.</p></figcaption>
+      </figure>
+      <figure class="console-shot">
+        <div class="browser"><div class="browser-bar"><i></i><i></i><i></i><span>kaja-bo · Cajeros</span></div><img src="assets/screenshot-cajeros.jpg" alt="Alta de cajeros en el panel de kaja-bo"></div>
+        <figcaption><h4>Cajeros <span class="pill">Control</span></h4><p>Altas, bajas y cambio de contraseña. Las mismas credenciales entran a la app.</p></figcaption>
+      </figure>
+      <figure class="console-shot">
+        <div class="browser"><div class="browser-bar"><i></i><i></i><i></i><span>kaja-bo · Cobrar</span></div><img src="assets/screenshot-cobrar.jpg" alt="Pestaña Cobrar del panel de kaja-bo con carrito y total"></div>
+        <figcaption><h4>Cobrar <span class="pill">Velocidad</span></h4><p>Buscás el producto, armás el carrito y cobrás en efectivo o tarjeta sin tener la caja a mano.</p></figcaption>
+      </figure>
     </div>
 
     <div class="modules">
-      <div class="sticker module"><h4>Ventas</h4><p>Total, aprobadas, rechazadas, promedio diario, gráfico por día y detalle de cada ticket.</p></div>
       <div class="sticker module"><h4>Terminales</h4><p>Ventas de hoy y última venta por caja, y qué terminales reportaron en el día.</p></div>
-      <div class="sticker module"><h4>Stock</h4><p>El stock actual de cada producto en cada terminal, filtrable por sucursal.</p></div>
-      <div class="sticker module"><h4>Productos</h4><p>Catálogo único con nombre, precio y código de barras. Activás o desactivás sin borrar.</p></div>
-      <div class="sticker module"><h4>Sucursales</h4><p>Agrupás cajas por local y filtrás ventas y stock por cada uno.</p></div>
-      <div class="sticker module"><h4>Cajeros</h4><p>Altas, bajas y cambio de contraseña. Las mismas credenciales entran a la app.</p></div>
-      <div class="sticker module"><h4>Eventos <small>Nuevo</small></h4><p>Eventos con fecha, precio y cupo; venta de entradas con QR por mail.</p></div>
-      <div class="sticker module"><h4>Cobrar</h4><p>Cobro web en efectivo o tarjeta contra la terminal elegida, y anulación por ticket.</p></div>
-      <div class="sticker module"><h4>UCFE <small>Próximamente</small></h4><p>Facturación electrónica e-Ticket: datos del comercio y del emisor, con modo prueba.</p></div>
+      <div class="sticker module"><h4>Eventos <small>Nuevo</small></h4><p>Eventos con fecha, precio y cupo; venta de entradas con QR por mail — ver más abajo.</p></div>
+      <div class="sticker module"><h4>UCFE <small>Próximamente</small></h4><p>Facturación electrónica e-Ticket: datos del comercio y del emisor, con modo prueba — ver más abajo.</p></div>
     </div>
   </div>
 </section>
@@ -723,31 +714,5 @@
   </div>
 </footer>
 
-<script>
-  const views = [
-    { img: 'screenshot-backoffice.png', pill: 'Control', title: 'Ventas, casi en vivo', text: 'Indicadores y gráfico de ventas por día, filtrables por terminal, sucursal, fechas y estado.', list: ['Total vendido y promedio diario', 'Aprobadas y rechazadas de un vistazo', 'Se actualiza sola cada 10 segundos'] },
-    { img: 'screenshot-productos.jpg', pill: 'Facilidad', title: 'Un catálogo para todas las cajas', text: 'Cargás productos y precios una sola vez; cada terminal los sincroniza sola.', list: ['Nombre, precio y código de barras', 'Activar o desactivar sin borrar', 'Nadie cambia un precio a mano en el mostrador'] },
-    { img: 'screenshot-stock-terminal.png', pill: 'Control', title: 'Stock de cada terminal', text: 'Cada caja reporta su stock actual para que sepas qué le queda sin ir a preguntar.', list: ['Filtro por terminal y sucursal', 'Artículos vendidos en cada ticket', 'Terminales activas hoy'] },
-    { img: 'screenshot-sucursales.png', pill: 'Versatilidad', title: 'Uno o muchos locales', text: 'Agrupás las terminales por sucursal y mirás ventas y stock por cada una.', list: ['Alta y baja de sucursales', 'Asignación de cajas por local', 'Reportes separados o consolidados'] },
-    { img: 'screenshot-cajeros.jpg', pill: 'Control', title: 'Cada cajero con su usuario', text: 'Das de alta y de baja cajeros sin tocar la caja, y sabés quién cobró cada venta.', list: ['Alta, baja y cambio de contraseña', 'Mismo usuario para la app y el panel', 'Rol cajero limitado a Cobrar y Anular'] },
-    { img: 'screenshot-cobrar.jpg', pill: 'Velocidad', title: 'Cobrá desde el panel', text: 'Buscás el producto, armás el carrito y cobrás sin tener la caja a mano.', list: ['Efectivo con cálculo de vuelto', 'Tarjeta contra la terminal elegida', 'Anulación por número de ticket'] },
-    { img: 'screenshot-ucfe.jpg', pill: 'Versatilidad', title: 'Facturación electrónica', text: 'Configurás los datos que asigna Uruware y el e-Ticket se emite solo en cada cobro.', list: ['Datos del comercio y del emisor', 'Reenvío del comprobante por mail', 'Modo prueba sin llamar a la red'] },
-  ];
-  const tabs = document.querySelectorAll('.tab');
-  const $ = (id) => document.getElementById(id);
-  function show(i) {
-    const v = views[i];
-    tabs.forEach((t, j) => t.setAttribute('aria-selected', String(i === j)));
-    $('viewerImg').src = 'assets/' + v.img;
-    $('viewerImg').alt = 'Módulo ' + tabs[i].textContent + ' de kaja-bo';
-    $('viewerUrl').textContent = 'kaja-bo · ' + tabs[i].textContent;
-    $('viewerPill').textContent = v.pill;
-    $('viewerTitle').textContent = v.title;
-    $('viewerText').textContent = v.text;
-    $('viewerList').replaceChildren(...v.list.map((s) => Object.assign(document.createElement('li'), { textContent: s })));
-  }
-  tabs.forEach((t, i) => t.addEventListener('click', () => show(i)));
-  show(0);
-</script>
 </body>
 </html>
