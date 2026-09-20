@@ -179,7 +179,7 @@
     .product-intro { display: flex; align-items: center; gap: 18px; margin-bottom: 16px; }
     .product-intro img { width: 58px; height: 58px; border-radius: 14px; border: 2.5px solid var(--ink); box-shadow: 3px 3px 0 var(--ink); }
     .product-intro .kicker { font-weight: 700; font-size: 15px; color: var(--muted); }
-    .phones { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 24px; align-items: start; }
+    .phones { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; align-items: start; }
     .phone-card { display: flex; flex-direction: column; gap: 14px; }
     .phone-card .phone { border-radius: 22px; box-shadow: 5px 5px 0 var(--ink); }
     .phone-card h4 { font-size: 18px; }
@@ -335,9 +335,9 @@
       </span>
       <div class="browser">
         <div class="browser-bar"><i></i><i></i><i></i><span>kaja-bo · reportes de ventas</span></div>
-        <img src="assets/screenshot-backoffice.png" alt="">
+        <img src="assets/consola-ventas.png" alt="">
       </div>
-      <div class="phone"><img src="assets/screenshot-venta.png" alt=""></div>
+      <div class="phone"><img src="assets/app-venta.png" alt=""></div>
       <span class="float-tag t1">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg>
         Venta aprobada · ticket impreso
@@ -350,7 +350,7 @@
 <div class="stats">
   <div class="wrap stats-grid">
     <div class="stat"><b>3</b><span>formas de cobrar: efectivo, Fpinpad por red y App2App</span></div>
-    <div class="stat"><b>9</b><span>módulos en la consola para operar el negocio entero</span></div>
+    <div class="stat"><b>12</b><span>módulos en la consola para operar el negocio entero</span></div>
     <div class="stat"><b>10 s</b><span>entre cada actualización del panel de ventas</span></div>
     <div class="stat"><b>15 min</b><span>máximo para que stock, catálogo y eventos se sincronicen solos</span></div>
     <div class="stat"><b>8 h</b><span>de sesión por cajero, con aviso y extensión sin perder el carrito</span></div>
@@ -371,7 +371,7 @@
         <h3>Facilidad</h3>
         <p class="claim">Sin manual, sin capacitaciones eternas.</p>
         <ul>
-          <li>Botones grandes y todo a la vista: Venta, Stock, Anular y Eventos.</li>
+          <li>Botones grandes y todo a la vista: Venta, Stock, Anular, Eventos y Caja.</li>
           <li>Terminal, System ID y cobro se configuran una sola vez.</li>
           <li>Productos y precios se cargan en el panel y llegan solos a cada caja.</li>
           <li>La consola se usa desde cualquier navegador, también en el celular.</li>
@@ -393,10 +393,10 @@
         <h3>Control</h3>
         <p class="claim">Sabés qué se vendió, dónde, cuándo y quién lo cobró.</p>
         <ul>
-          <li>Login por cajero y auditoría de cada venta.</li>
-          <li>Artículos y medio de pago de cada ticket.</li>
+          <li>Login por cajero, con correo verificado y auditoría de cada venta.</li>
+          <li>Arqueo de caja: lo contado contra lo esperado, con historial.</li>
           <li>Stock por terminal y terminales activas hoy.</li>
-          <li>Si el cobro falla, el stock se revierte solo.</li>
+          <li>Conciliación contra la procesadora; si el cobro falla, el stock se revierte solo.</li>
         </ul>
       </article>
       <article class="sticker pillar">
@@ -442,7 +442,7 @@
     </ol>
     <div class="sticker safety">
       <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg>
-      <p>Ninguna venta te deja colgado: si el pago se rechaza, vence o falla la conexión, kaja devuelve el stock descontado. Y cada venta se guarda en la caja y se reintenta hasta llegar al panel.</p>
+      <p>Ninguna venta te deja colgado: si el pago se rechaza, vence o falla la conexión, kaja devuelve el stock descontado. Si la app se cierra en medio de un cobro, la venta queda pendiente y se resuelve sola contra la procesadora. Y cada venta se guarda en la caja y se reintenta hasta llegar al panel.</p>
     </div>
   </div>
 </section>
@@ -458,34 +458,49 @@
           <h2 style="margin:0">kaja, la caja de tu mostrador.</h2>
         </div>
       </div>
-      <p>Android nativa, pensada para terminales de cobro con impresora y lector integrados. Cuatro pestañas, todo a un toque.</p>
+      <p>Android nativa, pensada para terminales de cobro con impresora y lector integrados. Cinco pestañas —Venta, Stock, Anular, Eventos y Caja—, todo a un toque.</p>
     </div>
 
     <div class="phones">
       <figure class="phone-card" style="margin:0">
-        <div class="phone"><img src="assets/screenshot-login.png" alt="Pantalla de login de kaja con usuario y contraseña"></div>
+        <div class="phone"><img src="assets/app-login.png" alt="Pantalla de login de kaja con usuario, contraseña, recuperar contraseña y pedir usuario"></div>
         <h4>Login de cajero</h4>
-        <p>Cada empleado entra con su usuario. Al salir, se cierra el lote de la terminal.</p>
+        <p>Cada empleado entra con su usuario. Si no tiene, lo pide desde la app y el administrador lo aprueba; si olvidó la clave, recibe un link por mail.</p>
       </figure>
       <figure class="phone-card" style="margin:0">
-        <div class="phone"><img src="assets/screenshot-venta.png" alt="Pantalla de venta con carrito y botón Cobrar"></div>
+        <div class="phone"><img src="assets/app-venta.png" alt="Pantalla de venta con carrito y botón Cobrar"></div>
         <h4>Venta</h4>
         <p>Productos, carrito con +/−, escaneo y botón Cobrar siempre a mano.</p>
       </figure>
       <figure class="phone-card" style="margin:0">
-        <div class="phone"><img src="assets/screenshot-buscador.png" alt="Buscador manual de productos"></div>
+        <div class="phone"><img src="assets/app-buscador.png" alt="Buscador manual de productos"></div>
         <h4>Buscador</h4>
         <p>Encontrá cualquier producto por nombre o código de barras en un segundo.</p>
       </figure>
       <figure class="phone-card" style="margin:0">
-        <div class="phone"><img src="assets/screenshot-stock.png" alt="Pantalla de stock de kaja"></div>
+        <div class="phone"><img src="assets/app-stock.png" alt="Pantalla de stock de kaja"></div>
         <h4>Stock</h4>
         <p>Se descuenta con cada venta; en la caja solo ajustás cantidades.</p>
       </figure>
       <figure class="phone-card" style="margin:0">
-        <div class="phone"><img src="assets/screenshot-anulacion.png" alt="Pantalla de anulación por número de ticket"></div>
-        <h4>Anular y cerrar lote</h4>
-        <p>Anulás por número de ticket con devolución automática, y cerrás lotes uno a uno o todos.</p>
+        <div class="phone"><img src="assets/app-anular.png" alt="Pantalla de anulación por número de ticket"></div>
+        <h4>Anular</h4>
+        <p>Anulás por número de ticket con devolución automática del pago.</p>
+      </figure>
+      <figure class="phone-card" style="margin:0">
+        <div class="phone"><img src="assets/app-eventos.png" alt="Pantalla de eventos: escanear entradas y vender entradas"></div>
+        <h4>Eventos</h4>
+        <p>Vendé entradas con QR por mail y validá cada una escaneándola en la puerta.</p>
+      </figure>
+      <figure class="phone-card" style="margin:0">
+        <div class="phone"><img src="assets/app-caja.png" alt="Pantalla de caja: abrir caja con monto inicial e historial"></div>
+        <h4>Caja</h4>
+        <p>Abrís con un monto inicial y cerrás contando el efectivo: kaja compara lo contado con lo esperado.</p>
+      </figure>
+      <figure class="phone-card" style="margin:0">
+        <div class="phone"><img src="assets/app-configuracion.png" alt="Configuración de kaja: terminal, medio de cobro y kaja-bo"></div>
+        <h4>Configuración</h4>
+        <p>Terminal, System ID, Fpinpad o App2App y la conexión con kaja-bo, una sola vez. Desde acá también se cierra el lote.</p>
       </figure>
     </div>
 
@@ -533,6 +548,27 @@
           <p>Vendé entradas desde la caja y validá cada QR escaneándolo al ingreso.</p>
         </div>
       </div>
+      <div class="sticker feature">
+        <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h13v4"/><path d="M3 7v11a2 2 0 0 0 2 2h14a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1H5a2 2 0 0 1-2-2Z"/><path d="M16 14h.01"/></svg></div>
+        <div>
+          <h4>Caja con arqueo</h4>
+          <p>Abrís la caja con un monto inicial y la cerrás contando el efectivo. kaja compara lo contado contra lo esperado y guarda el historial; sin caja abierta no se puede vender.</p>
+        </div>
+      </div>
+      <div class="sticker feature">
+        <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 5 3.4 8 8 9 4.6-1 8-4 8-9V6l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg></div>
+        <div>
+          <h4>Cuentas verificadas</h4>
+          <p>Los cajeros piden su usuario desde la app y el administrador lo aprueba en kaja-bo. Cada cuenta queda anclada a un correo verificado con un código de 8 dígitos; si olvidan la clave, reciben un link que vence a los 30 minutos.</p>
+        </div>
+      </div>
+      <div class="sticker feature">
+        <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+        <div>
+          <h4>Cobros que no se pierden</h4>
+          <p>Si la app se cierra o se corta la conexión a mitad de un cobro, la venta queda pendiente y se resuelve sola consultando el resultado a la procesadora.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -548,28 +584,40 @@
 
     <div class="console-shots">
       <figure class="console-shot">
-        <div class="browser"><div class="browser-bar"><i></i><i></i><i></i><span>kaja-bo · Ventas</span></div><img src="assets/screenshot-backoffice.png" alt="Panel de ventas de kaja-bo con total vendido, aprobadas, rechazadas y el gráfico de ventas por día"></div>
+        <div class="browser"><div class="browser-bar"><i></i><i></i><i></i><span>kaja-bo · Ventas</span></div><img src="assets/consola-ventas.png" alt="Panel de ventas de kaja-bo con total vendido, aprobadas, rechazadas y el gráfico de ventas por día"></div>
         <figcaption><h4>Ventas <span class="pill">Control</span></h4><p>Total vendido, aprobadas y rechazadas, gráfico por día y detalle de cada ticket. Se actualiza sola cada 10 segundos.</p></figcaption>
       </figure>
       <figure class="console-shot">
-        <div class="browser"><div class="browser-bar"><i></i><i></i><i></i><span>kaja-bo · Productos</span></div><img src="assets/screenshot-productos.jpg" alt="Catálogo de productos y precios en el panel de kaja-bo"></div>
-        <figcaption><h4>Productos <span class="pill">Facilidad</span></h4><p>Cargás productos y precios una sola vez; cada terminal los sincroniza sola, sin tocar precios en el mostrador.</p></figcaption>
+        <div class="browser"><div class="browser-bar"><i></i><i></i><i></i><span>kaja-bo · Cobrar</span></div><img src="assets/consola-cobrar.png" alt="Pestaña Cobrar del panel de kaja-bo con buscador de productos y carrito"></div>
+        <figcaption><h4>Cobrar <span class="pill">Velocidad</span></h4><p>Buscás el producto, armás el carrito y cobrás en efectivo o tarjeta sin tener la caja a mano.</p></figcaption>
       </figure>
       <figure class="console-shot">
-        <div class="browser"><div class="browser-bar"><i></i><i></i><i></i><span>kaja-bo · Stock</span></div><img src="assets/screenshot-stock-terminal.png" alt="Tabla de stock por terminal en el panel de kaja-bo"></div>
+        <div class="browser"><div class="browser-bar"><i></i><i></i><i></i><span>kaja-bo · Caja</span></div><img src="assets/consola-caja.png" alt="Aperturas y cierres de caja por terminal con monto contado, esperado y diferencia"></div>
+        <figcaption><h4>Caja <span class="pill">Control</span></h4><p>Aperturas y cierres de cada terminal con monto inicial, contado, esperado y diferencia. Marca las cajas que quedaron abiertas hace días.</p></figcaption>
+      </figure>
+      <figure class="console-shot">
+        <div class="browser"><div class="browser-bar"><i></i><i></i><i></i><span>kaja-bo · Productos</span></div><img src="assets/consola-productos.png" alt="Catálogo de productos, precios y códigos de barras en el panel de kaja-bo"></div>
+        <figcaption><h4>Productos <span class="pill">Facilidad</span></h4><p>Cargás productos, precios y códigos de barras una sola vez; cada terminal los sincroniza sola, sin tocar precios en el mostrador.</p></figcaption>
+      </figure>
+      <figure class="console-shot">
+        <div class="browser"><div class="browser-bar"><i></i><i></i><i></i><span>kaja-bo · Stock</span></div><img src="assets/consola-stock.png" alt="Tabla de stock por terminal en el panel de kaja-bo"></div>
         <figcaption><h4>Stock <span class="pill">Control</span></h4><p>El stock actual de cada producto en cada terminal, filtrable por sucursal.</p></figcaption>
       </figure>
       <figure class="console-shot">
-        <div class="browser"><div class="browser-bar"><i></i><i></i><i></i><span>kaja-bo · Sucursales</span></div><img src="assets/screenshot-sucursales.png" alt="Panel de sucursales de kaja-bo"></div>
+        <div class="browser"><div class="browser-bar"><i></i><i></i><i></i><span>kaja-bo · Sucursales</span></div><img src="assets/consola-sucursales.png" alt="Panel de sucursales de kaja-bo"></div>
         <figcaption><h4>Sucursales <span class="pill">Versatilidad</span></h4><p>Agrupás las terminales por sucursal y filtrás ventas y stock por cada local.</p></figcaption>
       </figure>
       <figure class="console-shot">
-        <div class="browser"><div class="browser-bar"><i></i><i></i><i></i><span>kaja-bo · Cajeros</span></div><img src="assets/screenshot-cajeros.jpg" alt="Alta de cajeros en el panel de kaja-bo"></div>
-        <figcaption><h4>Cajeros <span class="pill">Control</span></h4><p>Altas, bajas y cambio de contraseña. Las mismas credenciales entran a la app.</p></figcaption>
+        <div class="browser"><div class="browser-bar"><i></i><i></i><i></i><span>kaja-bo · Cajeros</span></div><img src="assets/consola-cajeros.png" alt="Cajeros en kaja-bo con correo verificado, solicitudes pendientes de aprobación y acciones"></div>
+        <figcaption><h4>Cajeros <span class="pill">Control</span></h4><p>Altas y bajas, aprobación de las solicitudes que llegan desde la app, correo verificado de cada cajero y reseteo de contraseña. Las mismas credenciales entran a la app.</p></figcaption>
       </figure>
       <figure class="console-shot">
-        <div class="browser"><div class="browser-bar"><i></i><i></i><i></i><span>kaja-bo · Cobrar</span></div><img src="assets/screenshot-cobrar.jpg" alt="Pestaña Cobrar del panel de kaja-bo con carrito y total"></div>
-        <figcaption><h4>Cobrar <span class="pill">Velocidad</span></h4><p>Buscás el producto, armás el carrito y cobrás en efectivo o tarjeta sin tener la caja a mano.</p></figcaption>
+        <div class="browser"><div class="browser-bar"><i></i><i></i><i></i><span>kaja-bo · Conciliación</span></div><img src="assets/consola-conciliacion.png" alt="Conciliación contra ITD en kaja-bo: conflictos sin revisar y lote actual"></div>
+        <figcaption><h4>Conciliación <span class="pill">Control</span></h4><p>Compara lo que kaja-bo registró contra lo que la procesadora confirma: conflictos sin revisar, lote actual e histórico de cierres. Solo informa, no corrige nada solo.</p></figcaption>
+      </figure>
+      <figure class="console-shot">
+        <div class="browser"><div class="browser-bar"><i></i><i></i><i></i><span>kaja-bo · Reportes</span></div><img src="assets/consola-reportes.png" alt="Reporte de ventas y crecimiento con ingresos, ticket promedio y tasa de aprobación"></div>
+        <figcaption><h4>Reportes <span class="pill">Control</span></h4><p>Ventas y crecimiento, catálogo, sucursales y cajeros, operativo y eventos: ingresos por día, ticket promedio, tasa de aprobación y efectivo contra tarjeta.</p></figcaption>
       </figure>
     </div>
 
@@ -603,6 +651,10 @@
           <span class="scan ok">✓ Entrada válida</span>
           <span class="scan no">✕ Ya utilizada</span>
         </div>
+        <div class="browser">
+          <div class="browser-bar"><i></i><i></i><i></i><span>kaja-bo · Eventos</span></div>
+          <img src="assets/consola-eventos.png" alt="Eventos en kaja-bo con fecha, precio y entradas vendidas sobre el cupo">
+        </div>
       </article>
       <article class="sticker banner">
         <span class="pill pill-soon" style="align-self:flex-start">Próximamente</span>
@@ -610,7 +662,7 @@
         <p>Integrada de punta a punta y funcionando en modo prueba: al cobrar se emite el comprobante y el ticket sale con su QR y código de seguridad, sin que el cajero haga nada. Se puede reenviar por mail. Pasa a producción al completar el alta del comercio con Uruware.</p>
         <div class="browser">
           <div class="browser-bar"><i></i><i></i><i></i><span>kaja-bo · UCFE</span></div>
-          <img src="assets/screenshot-ucfe.jpg" alt="Configuración de UCFE en kaja-bo con los datos del comercio y del emisor">
+          <img src="assets/consola-ucfe.png" alt="Configuración de UCFE en kaja-bo con los datos del comercio y del emisor">
         </div>
       </article>
     </div>
@@ -631,13 +683,13 @@
         <dl>
           <div><dt>Plataforma</dt><dd>Android nativa (Kotlin + Jetpack Compose)</dd></div>
           <div><dt>Hardware</dt><dd>Terminales Android con impresora y lector integrados (Ingenico/Landi USDK). Escaneo por cámara en cualquier Android.</dd></div>
-          <div><dt>Pantallas</dt><dd>Login · Venta · Stock · Anular · Eventos · Configuración</dd></div>
+          <div><dt>Pantallas</dt><dd>Login · Venta · Stock · Anular · Eventos · Caja · Configuración</dd></div>
           <div><dt>Medios de cobro</dt><dd>Efectivo con vuelto · Tarjeta vía Fpinpad por red (Fiserv ITD) · App2App</dd></div>
-          <div><dt>Operaciones</dt><dd>Anulación por ticket con devolución · Cierre de lote individual o de todos · Venta y validación de entradas</dd></div>
+          <div><dt>Operaciones</dt><dd>Anulación por ticket con devolución · Apertura y cierre de caja con arqueo · Cierre de lote individual o de todos · Venta y validación de entradas</dd></div>
           <div><dt>Ticket</dt><dd>Impresión automática con logo; QR y código de seguridad del CFE</dd></div>
           <div><dt>Datos locales</dt><dd>Catálogo, stock, eventos y ventas guardados en el equipo</dd></div>
           <div><dt>Sincronización</dt><dd>Ventas al instante con reintento automático · Stock, catálogo y eventos cada 15 min o manual</dd></div>
-          <div><dt>Sesión</dt><dd>Usuario por cajero · 8 h con aviso y extensión · Cierre de lote al salir</dd></div>
+          <div><dt>Sesión</dt><dd>Usuario por cajero, con alta por solicitud aprobada por el administrador · Correo verificado con código de 8 dígitos · Recuperación de contraseña por link que vence a los 30 min · 8 h con aviso y extensión · Cierre de lote al salir</dd></div>
         </dl>
       </div>
       <div class="spec-col">
@@ -645,11 +697,15 @@
         <dl>
           <div><dt>Acceso</dt><dd>Web, desde cualquier navegador; diseño adaptado a celular</dd></div>
           <div><dt>Roles</dt><dd>Administrador con acceso total · Cajero limitado a Cobrar y Anular</dd></div>
-          <div><dt>Módulos</dt><dd>Ventas · Terminales · Stock · Productos · Sucursales · Cajeros · Eventos · Cobrar · UCFE</dd></div>
+          <div><dt>Módulos</dt><dd>Ventas · Cobrar · Caja · Terminales · Stock · Productos · Sucursales · Cajeros · Eventos · UCFE · Conciliación · Reportes</dd></div>
           <div><dt>Indicadores</dt><dd>Total vendido · Aprobadas · Rechazadas · Cantidad de ventas · Promedio diario · Gráfico por día</dd></div>
           <div><dt>Filtros</dt><dd>Terminal · Sucursal · Rango de fechas · Estado (aprobada, rechazada, timeout) · Buscador global</dd></div>
           <div><dt>Detalle por venta</dt><dd>Fecha, terminal, ticket, monto, estado, medio de pago y artículos</dd></div>
           <div><dt>Actualización</dt><dd>Automática cada 10 segundos</dd></div>
+          <div><dt>Caja</dt><dd>Aperturas y cierres por terminal con contado, esperado y diferencia · Alerta de cajas abiertas hace días</dd></div>
+          <div><dt>Conciliación</dt><dd>Contra la procesadora (ITD): conflictos sin revisar, lote actual e histórico de cierres · Solo informa, no corrige</dd></div>
+          <div><dt>Reportes</dt><dd>Ventas y crecimiento · Catálogo · Sucursales y cajeros · Operativo · Eventos</dd></div>
+          <div><dt>Cajeros</dt><dd>Altas, bajas, aprobación de solicitudes, correo verificado y reseteo de contraseña</dd></div>
           <div><dt>Cobro web</dt><dd>Carrito con buscador por nombre o código · Efectivo con vuelto · Tarjeta contra terminal · Anulación · Modo prueba</dd></div>
         </dl>
       </div>
@@ -659,11 +715,12 @@
           <div><dt>Pagos</dt><dd>Fiserv ITD + Fpinpad · App2App con la app de pago del dispositivo</dd></div>
           <div><dt>Facturación</dt><dd>UCFE de Uruware (e-Ticket) con reenvío por mail · Modo prueba</dd></div>
           <div><dt>Entradas</dt><dd>QR único por entrada, enviado por mail · Validación de un solo uso · Control de cupo</dd></div>
+          <div><dt>Correo</dt><dd>SMTP propio del comercio: entradas, códigos de verificación y links de recuperación de contraseña</dd></div>
           <div><dt>Backend</dt><dd>Kotlin + Ktor + PostgreSQL</dd></div>
           <div><dt>Despliegue</dt><dd>Contenedores Docker: se levanta con un solo comando</dd></div>
           <div><dt>API</dt><dd>REST; las terminales se autentican con API key</dd></div>
           <div><dt>Auditoría</dt><dd>Cada venta registra el cajero que la cobró</dd></div>
-          <div><dt>Consistencia</dt><dd>Stock revertido si el cobro falla · Ventas no enviadas quedan en cola hasta llegar</dd></div>
+          <div><dt>Consistencia</dt><dd>Stock revertido si el cobro falla · Cobros pendientes que se resuelven solos contra la procesadora · Ventas no enviadas quedan en cola hasta llegar</dd></div>
         </dl>
       </div>
     </div>
