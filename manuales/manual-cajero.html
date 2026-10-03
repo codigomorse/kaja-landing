@@ -35,7 +35,7 @@ blockquote { margin: 16px 0; padding: 8px 16px; border-left: 4px solid var(--ace
 <p><a href="../index.html#manuales">← Volver al índice</a></p>
 <ul>
 <li><a href="#configurar-la-terminal">Configurar la terminal</a> (una sola vez, la hace el administrador o el técnico)</li>
-<li><a href="#ingresar">Ingresar</a></li>
+<li><a href="#tu-usuario">Tu usuario</a>: ingresar, primer ingreso, pedir un usuario y recuperar la contraseña</li>
 <li><a href="#el-men%C3%BA">El menú</a></li>
 <li><a href="#abrir-la-caja">Abrir la caja</a></li>
 <li><a href="#vender">Vender</a></li>
@@ -60,15 +60,54 @@ blockquote { margin: 16px 0; padding: 8px 16px; border-left: 4px solid var(--ace
 <blockquote>
 <p>Si se escanea el QR de <strong>otro comercio</strong>, la terminal borra el catálogo del comercio anterior y baja el del nuevo.</p>
 </blockquote>
-<h2 id="ingresar">Ingresar</h2>
-<p><img src="img/kaja-login.png" alt="Pantalla de ingreso"></p>
-<p>Ingresá con tu <strong>Usuario</strong> y <strong>Contraseña</strong> y tocá <strong>Ingresar</strong>.</p>
+<h2 id="tu-usuario">Tu usuario</h2>
+<p>Cada cajero entra a la terminal con su propio usuario. Hay dos formas de tenerlo:</p>
 <ul>
-<li><strong>Primer ingreso</strong>: te pide <strong>verificar tu correo</strong>. Te llega un código de 8 dígitos por mail; ingresalo para entrar.</li>
-<li><strong>¿No tenés usuario? Pedilo</strong>: completá tu nombre, usuario, correo y contraseña, y verificá el correo con el código. Tu usuario queda <strong>pendiente</strong> hasta que el administrador lo apruebe; la pantalla te ofrece avisarle por WhatsApp o por mail.</li>
-<li><strong>¿Olvidaste tu contraseña?</strong>: escribí el correo con el que verificaste tu usuario y te llega un link para elegir una contraseña nueva. El link vence en 30 minutos y sirve una sola vez.</li>
+<li><strong>Te lo crea el administrador</strong> en kaja-bo y te pasa el usuario y la contraseña. La primera vez que entrás, verificás tu correo (<a href="#primer-ingreso-verificar-el-correo">Primer ingreso</a>).</li>
+<li><strong>Lo pedís vos</strong> desde la terminal y el administrador lo aprueba (<a href="#pedir-un-usuario">Pedir un usuario</a>).</li>
 </ul>
+<p>El correo verificado sirve para recuperar la contraseña si te la olvidás.</p>
+<h3 id="ingresar">Ingresar</h3>
+<p><img src="img/kaja-login.png" alt="Pantalla de ingreso"></p>
+<p>Escribí tu <strong>Usuario</strong> y tu <strong>Contraseña</strong> y tocá <strong>Ingresar</strong>. El ojo a la derecha muestra u oculta la contraseña.</p>
+<p><img src="img/kaja-login-completo.png" alt="Usuario y contraseña cargados"></p>
+<p>Si todo está bien, entrás a la pantalla de Venta:</p>
+<p><img src="img/kaja-venta-tras-ingreso.png" alt="Venta, después de ingresar"></p>
 <p>La sesión dura <strong>8 horas</strong>. Diez minutos antes de que termine aparece el aviso &quot;Tu sesión se cierra en 10 minutos&quot;: tocá <strong>Continuar</strong> para seguir 2 horas más.</p>
+<h3 id="primer-ingreso-verificar-el-correo">Primer ingreso: verificar el correo</h3>
+<p>Si tu usuario lo creó el administrador, la primera vez que tocás <strong>Ingresar</strong> la terminal te pide verificar tu correo. Te muestra a qué correo va a mandar el código (con parte oculta); si no es el tuyo, escribí el correcto en <strong>Otro correo (opcional)</strong>. Tocá <strong>Enviar código</strong>.</p>
+<p><img src="img/kaja-verificar-correo.png" alt="Verificá tu correo: la terminal va a mandar un código"></p>
+<p>Te llega un mail con un <strong>código de 8 dígitos</strong>. Escribilo y tocá <strong>Verificar</strong>. Si no llegó, revisá el correo no deseado o tocá <strong>Reenviar código</strong>.</p>
+<p><img src="img/kaja-verificar-correo-codigo.png" alt="Código de 8 dígitos cargado"></p>
+<p>Con el correo verificado entrás directo a Venta, y no se vuelve a pedir.</p>
+<h3 id="pedir-un-usuario">Pedir un usuario</h3>
+<p>Si todavía no tenés usuario, pedilo desde la pantalla de ingreso:</p>
+<ol>
+<li><p>Tocá <strong>¿No tenés usuario? Pedilo</strong>.</p>
+</li>
+<li><p>Completá <strong>Usuario</strong> (con el que vas a entrar), <strong>Tu nombre</strong>, <strong>Correo</strong> y <strong>Contraseña</strong>, y tocá <strong>Enviar solicitud</strong>.</p>
+<p><img src="img/kaja-pedir-usuario.png" alt="Pedir usuario"></p>
+</li>
+<li><p>Te llega un mail con un <strong>código de 8 dígitos</strong>. Escribilo y tocá <strong>Verificar</strong>.</p>
+<p><img src="img/kaja-pedir-usuario-codigo.png" alt="Verificar el correo de la solicitud"></p>
+</li>
+<li><p>Listo: tu correo quedó verificado y tu usuario queda <strong>pendiente</strong> hasta que el administrador lo apruebe. Con <strong>Avisar por WhatsApp</strong> o <strong>Avisar por mail</strong> le mandás un mensaje al contacto que cargó el comercio.</p>
+<p><img src="img/kaja-pedir-usuario-enviada.png" alt="Solicitud enviada"></p>
+</li>
+</ol>
+<p>Cuando el administrador lo apruebe en kaja-bo (<a href="manual-administrador.html#cajeros-que-piden-usuario-desde-la-terminal">así lo ve él</a>), ya podés <a href="#ingresar">ingresar</a> con tu usuario y contraseña.</p>
+<h3 id="olvidaste-tu-contraseña">¿Olvidaste tu contraseña?</h3>
+<ol>
+<li><p>En la pantalla de ingreso tocá <strong>¿Olvidaste tu contraseña?</strong>.</p>
+</li>
+<li><p>Escribí el correo con el que verificaste tu usuario y tocá <strong>Enviar link</strong>.</p>
+<p><img src="img/kaja-olvide-contrasena.png" alt="Recuperar contraseña"></p>
+</li>
+<li><p>Te llega un mail con un link para elegir una contraseña nueva. <strong>Vence en 30 minutos y se puede usar una sola vez.</strong></p>
+<p><img src="img/kaja-olvide-contrasena-enviado.png" alt="Link enviado"></p>
+</li>
+</ol>
+<p>Por seguridad, la terminal no dice si el correo está registrado o no. Si no te llega nada, puede que tu correo no esté verificado: pedile al administrador que te resetee la contraseña desde kaja-bo.</p>
 <h2 id="el-menú">El menú</h2>
 <p>Tocá las tres rayas (arriba a la izquierda) para abrir el menú:</p>
 <p><img src="img/kaja-menu.png" alt="Menú de la app"></p>

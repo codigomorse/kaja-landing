@@ -120,16 +120,21 @@ blockquote { margin: 16px 0; padding: 8px 16px; border-left: 4px solid var(--ace
 <p><img src="img/bo-promociones.png" alt="Lista de promociones"></p>
 <h2 id="cajeros">Cajeros</h2>
 <p><strong>Gente → Cajeros.</strong> Los cajeros son los usuarios que ingresan a la app de la terminal.</p>
+<p>Un cajero puede tener usuario de dos formas: <strong>lo creás vos</strong> acá, o <strong>lo pide él</strong> desde la terminal y vos lo aprobás. En los dos casos, el cajero verifica su correo con un código de 8 dígitos que le llega por mail.</p>
 <h3 id="crear-un-cajero">Crear un cajero</h3>
 <ol>
 <li>Completá <strong>Usuario</strong> (con el que ingresa a la terminal), <strong>Nombre a mostrar</strong>, <strong>Correo</strong> y <strong>Contraseña</strong>.</li>
 <li>Tocá <strong>Crear</strong>.</li>
+<li>Pasale al cajero su usuario y su contraseña.</li>
 </ol>
 <p><img src="img/bo-cajero-nuevo.png" alt="Nuevo cajero"></p>
-<p>La primera vez que ingrese a la terminal, el cajero tiene que <strong>verificar su correo</strong> con un código de 8 dígitos que le llega por mail. Hasta entonces la lista lo muestra &quot;(sin verificar)&quot;, y sin el correo verificado no puede recuperar su contraseña.</p>
+<p>El cajero aparece en la lista como <strong>Activo</strong> y con el correo <strong>(sin verificar)</strong>. La primera vez que ingrese a la terminal, la app le manda un código a ese correo y le pide cargarlo (<a href="manual-cajero.html#primer-ingreso-verificar-el-correo">cómo lo ve el cajero</a>). Desde ahí el correo figura como <strong>(verificado)</strong>. Sin el correo verificado no puede recuperar su contraseña.</p>
 <p><img src="img/bo-cajeros.png" alt="Lista de cajeros"></p>
 <h3 id="cajeros-que-piden-usuario-desde-la-terminal">Cajeros que piden usuario desde la terminal</h3>
-<p>Un cajero nuevo también puede pedir su usuario desde la pantalla de ingreso de la terminal (&quot;¿No tenés usuario? Pedilo&quot;). Después de verificar su correo, aparece en la lista como <strong>Pendiente</strong>, con los botones <strong>Aprobar</strong> y <strong>Rechazar</strong>. Hasta que lo apruebes no puede ingresar.</p>
+<p>Un cajero nuevo también puede pedir su usuario desde la pantalla de ingreso de la terminal, con &quot;¿No tenés usuario? Pedilo&quot; (<a href="manual-cajero.html#pedir-un-usuario">cómo lo ve el cajero</a>). Después de verificar su correo, aparece en la lista como <strong>Pendiente</strong>, con los botones <strong>Aprobar</strong> y <strong>Rechazar</strong>. Hasta que lo apruebes no puede ingresar.</p>
+<p><img src="img/bo-cajero-pendiente.png" alt="Cajera pendiente de aprobación"></p>
+<p>Al tocar <strong>Aprobar</strong> queda <strong>Activo</strong> y ya puede ingresar con el usuario y la contraseña que eligió. <strong>Rechazar</strong> descarta la solicitud.</p>
+<p><img src="img/bo-cajero-aprobado.png" alt="Cajera aprobada"></p>
 <p>En <strong>Contacto para cajeros nuevos</strong> cargá un correo y/o un WhatsApp: la terminal se los muestra a quien pidió usuario para que te avise.</p>
 <h3 id="otras-acciones">Otras acciones</h3>
 <ul>
