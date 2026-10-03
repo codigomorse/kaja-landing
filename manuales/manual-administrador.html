@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Manual del administrador del comercio</title>
+<link rel="icon" href="../assets/icon.png">
+<style>
+:root { --bg: #ffffff; --texto: #1a1a1a; --suave: #5a5a5a; --borde: #e3e3e3; --acento: #8a6d00; --codigo: #f4f4f4; --cabecera: #fafafa; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --bg: #141518; --texto: #ededec; --suave: #a0a4ab; --borde: #2c2f36; --acento: #e4ff4d; --codigo: #1f2127; --cabecera: #1b1d22; }
+}
+:root[data-theme="dark"] { --bg: #141518; --texto: #ededec; --suave: #a0a4ab; --borde: #2c2f36; --acento: #e4ff4d; --codigo: #1f2127; --cabecera: #1b1d22; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--texto); font: 16px/1.6 system-ui, -apple-system, "Segoe UI", sans-serif; }
+main { max-width: 920px; margin: 0 auto; padding: 32px 16px 64px; }
+h1 { font-size: 2rem; line-height: 1.2; margin: 0 0 16px; }
+h2 { font-size: 1.45rem; margin: 48px 0 12px; padding-top: 12px; border-top: 1px solid var(--borde); }
+h3 { font-size: 1.15rem; margin: 28px 0 8px; }
+a { color: var(--acento); }
+img { display: block; max-width: 100%; height: auto; margin: 16px 0; border: 1px solid var(--borde); border-radius: 8px; }
+img[src*="/kaja-"] { max-width: 320px; }
+table { width: 100%; border-collapse: collapse; margin: 16px 0; display: block; overflow-x: auto; }
+th, td { text-align: left; padding: 8px 10px; border: 1px solid var(--borde); vertical-align: top; }
+th { background: var(--cabecera); }
+code { background: var(--codigo); padding: 1px 5px; border-radius: 4px; font-size: .92em; }
+blockquote { margin: 16px 0; padding: 8px 16px; border-left: 4px solid var(--acento); background: var(--cabecera); color: var(--suave); }
+@media print { img { break-inside: avoid; } h2 { break-after: avoid; } }
+</style>
+</head>
+<body>
+<main>
+<h1 id="manual-del-administrador-del-comercio">Manual del administrador del comercio</h1>
+<p>kaja-bo es la página web donde el administrador configura su comercio y sigue lo que pasa en las terminales. Este manual recorre cada sección en el orden en que conviene usarlas.</p>
+<p><a href="../index.html#manuales">← Volver al índice</a></p>
+<ul>
+<li><a href="#ingresar">Ingresar</a></li>
+<li><a href="#c%C3%B3mo-est%C3%A1-organizada-la-pantalla">Cómo está organizada la pantalla</a></li>
+<li><a href="#puesta-en-marcha">Puesta en marcha</a></li>
+<li><a href="#sucursales">Sucursales</a></li>
+<li><a href="#productos">Productos</a></li>
+<li><a href="#stock">Stock</a></li>
+<li><a href="#promociones">Promociones</a></li>
+<li><a href="#cajeros">Cajeros</a></li>
+<li><a href="#terminales">Terminales</a></li>
+<li><a href="#temas-de-kaja">Temas de kaja</a></li>
+<li><a href="#eventos-y-entradas">Eventos y entradas</a></li>
+<li><a href="#facturaci%C3%B3n-electr%C3%B3nica-ucfe">Facturación electrónica (UCFE)</a></li>
+<li><a href="#ventas">Ventas</a></li>
+<li><a href="#caja">Caja</a></li>
+<li><a href="#cobrar-desde-kaja-bo">Cobrar desde kaja-bo</a></li>
+<li><a href="#conciliaci%C3%B3n">Conciliación</a></li>
+<li><a href="#reportes">Reportes</a></li>
+</ul>
+<h2 id="ingresar">Ingresar</h2>
+<p>Entrá a la dirección de kaja-bo con tu <strong>correo</strong> y la <strong>clave temporal</strong> que te pasó el superadmin.</p>
+<p><img src="img/bo-login-completo.png" alt="Ingreso con correo y clave"></p>
+<p>Con ese mismo usuario (<code>admin</code>) y esa clave también podés entrar a la app de la terminal.</p>
+<h2 id="cómo-está-organizada-la-pantalla">Cómo está organizada la pantalla</h2>
+<p><img src="img/bo-inicio-admin.png" alt="Pantalla inicial del administrador"></p>
+<ul>
+<li><strong>Barra de íconos (izquierda)</strong>: agrupa las secciones. De arriba hacia abajo: <strong>Operación</strong> (ventas, cobrar, caja, terminales, temas), <strong>Catálogo</strong> (productos, promociones, stock), <strong>Gente</strong> (sucursales, cajeros), <strong>Eventos</strong>, <strong>Fiscal</strong> (UCFE, conciliación) y <strong>Reportes</strong>. Al tocar un ícono aparecen sus pestañas al lado.</li>
+<li><strong>Estado ahora</strong>: el recuadro de arriba a la izquierda muestra cuántas cajas están abiertas hoy, cuántas terminales reportaron y las <strong>alertas</strong> pendientes (diferencias de caja sin revisar, cajas sin cerrar de otro día, productos sin stock). Tocá una alerta para ir a resolverla.</li>
+<li><strong>Buscar</strong>: filtra las filas de las tablas de la pestaña que estás viendo (productos, cajeros, terminales, ventas, caja…).</li>
+<li><strong>Oscuro / Claro</strong>: cambia los colores de la página.</li>
+<li><strong>Salir</strong>: cierra la sesión.</li>
+</ul>
+<h2 id="puesta-en-marcha">Puesta en marcha</h2>
+<p>Para un comercio nuevo, cargá todo en este orden:</p>
+<ol>
+<li><strong><a href="#sucursales">Sucursales</a></strong>: cada local físico.</li>
+<li><strong><a href="#productos">Productos</a></strong>: el catálogo con precio y código de barras.</li>
+<li><strong><a href="#stock">Stock</a></strong>: cuántas unidades hay de cada producto en cada local.</li>
+<li><strong><a href="#cajeros">Cajeros</a></strong>: los usuarios que van a vender en las terminales.</li>
+<li><strong><a href="#facturaci%C3%B3n-electr%C3%B3nica-ucfe">UCFE</a></strong>: los datos de facturación electrónica.</li>
+<li><strong><a href="#systemid-de-itd-cobros-con-tarjeta">SystemId de ITD</a></strong>: el identificador que da Fiserv para cobrar con tarjeta.</li>
+<li>Configurá cada terminal con el QR (<a href="manual-cajero.html#configurar-la-terminal">manual del cajero</a>) y después asignala a su local en <strong><a href="#terminales">Terminales</a></strong>.</li>
+</ol>
+<h2 id="sucursales">Sucursales</h2>
+<p><strong>Gente → Sucursales.</strong> Cada sucursal es un local. La dirección sale impresa en el ticket de las ventas de ese local.</p>
+<ol>
+<li>Escribí el <strong>Nombre</strong> y la <strong>Dirección</strong>.</li>
+<li>Tocá <strong>Crear</strong>.</li>
+</ol>
+<p><img src="img/bo-sucursal-nueva.png" alt="Nueva sucursal"></p>
+<p><img src="img/bo-sucursales.png" alt="Lista de sucursales"></p>
+<p>Todo comercio arranca con una sucursal <strong>Principal</strong>. Podés usarla o crear las tuyas.</p>
+<h2 id="productos">Productos</h2>
+<p><strong>Catálogo → Productos.</strong></p>
+<ol>
+<li>Escribí el <strong>Nombre</strong>, el <strong>Precio</strong> y el <strong>Código de barras</strong> (es el que lee el escáner de la terminal; si el producto no tiene, dejalo vacío y el cajero lo busca por nombre).</li>
+<li>Tocá <strong>Crear</strong>.</li>
+</ol>
+<p><img src="img/bo-producto-nuevo.png" alt="Nuevo producto"></p>
+<p>En el <strong>Catálogo</strong> podés cambiar el precio o el código de barras de un producto y tocar <strong>Guardar</strong>, o tocar <strong>Dar de baja</strong> para que deje de aparecer en las terminales.</p>
+<p><img src="img/bo-productos.png" alt="Catálogo de productos"></p>
+<p>Los cambios llegan solos a las terminales en su próxima sincronización (cada 15 minutos, o enseguida si el cajero toca &quot;Reportar terminal a kaja-bo&quot; en Configuración).</p>
+<h2 id="stock">Stock</h2>
+<p><strong>Catálogo → Stock.</strong> El stock se lleva <strong>por local</strong>: cada sucursal tiene sus propias cantidades.</p>
+<ol>
+<li>En <strong>Local</strong>, elegí la sucursal.</li>
+<li>Escribí la cantidad de cada producto y tocá <strong>Guardar</strong> en su fila.</li>
+</ol>
+<p><img src="img/bo-stock-editando.png" alt="Cargar el stock de un local"></p>
+<p><img src="img/bo-stock.png" alt="Stock del Local Centro"></p>
+<p>Cada venta descuenta el stock del local de la terminal que vendió. Los productos que llegan a cero aparecen en las alertas (&quot;productos sin stock&quot;) y en el reporte de Catálogo.</p>
+<h2 id="promociones">Promociones</h2>
+<p><strong>Catálogo → Promociones.</strong> Las promociones son del tipo &quot;llevá N, pagá M&quot; (por ejemplo, 3x2) sobre un mismo producto. Se aplican solas en las terminales y en Cobrar, y el ticket muestra el nombre de la promoción.</p>
+<ol>
+<li><strong>Nombre</strong>: es lo que sale en el ticket (por ejemplo, &quot;3x2 en alfajores&quot;).</li>
+<li><strong>Llevá</strong> y <strong>Pagá</strong>: la cantidad que se lleva y la que se cobra.</li>
+<li><strong>Productos</strong>: marcá a qué productos se aplica.</li>
+<li><strong>Sucursales</strong>: marcá en qué locales vale. Si no marcás ninguna, vale en todas.</li>
+<li><strong>Desde</strong> y <strong>Hasta</strong>: las fechas de vigencia (el &quot;hasta&quot; incluye ese día).</li>
+<li><strong>Días</strong>, <strong>De</strong> y <strong>A</strong> (opcionales): para que valga solo ciertos días de la semana o en cierto horario. Sin marcar, vale todos los días y todo el día.</li>
+<li>Tocá <strong>Crear</strong>.</li>
+</ol>
+<p><img src="img/bo-promocion-nueva.png" alt="Nueva promoción 3x2"></p>
+<p>Si a un producto le corresponden varias promociones a la vez, se aplica la que más descuenta.</p>
+<p><img src="img/bo-promociones.png" alt="Lista de promociones"></p>
+<h2 id="cajeros">Cajeros</h2>
+<p><strong>Gente → Cajeros.</strong> Los cajeros son los usuarios que ingresan a la app de la terminal.</p>
+<h3 id="crear-un-cajero">Crear un cajero</h3>
+<ol>
+<li>Completá <strong>Usuario</strong> (con el que ingresa a la terminal), <strong>Nombre a mostrar</strong>, <strong>Correo</strong> y <strong>Contraseña</strong>.</li>
+<li>Tocá <strong>Crear</strong>.</li>
+</ol>
+<p><img src="img/bo-cajero-nuevo.png" alt="Nuevo cajero"></p>
+<p>La primera vez que ingrese a la terminal, el cajero tiene que <strong>verificar su correo</strong> con un código de 8 dígitos que le llega por mail. Hasta entonces la lista lo muestra &quot;(sin verificar)&quot;, y sin el correo verificado no puede recuperar su contraseña.</p>
+<p><img src="img/bo-cajeros.png" alt="Lista de cajeros"></p>
+<h3 id="cajeros-que-piden-usuario-desde-la-terminal">Cajeros que piden usuario desde la terminal</h3>
+<p>Un cajero nuevo también puede pedir su usuario desde la pantalla de ingreso de la terminal (&quot;¿No tenés usuario? Pedilo&quot;). Después de verificar su correo, aparece en la lista como <strong>Pendiente</strong>, con los botones <strong>Aprobar</strong> y <strong>Rechazar</strong>. Hasta que lo apruebes no puede ingresar.</p>
+<p>En <strong>Contacto para cajeros nuevos</strong> cargá un correo y/o un WhatsApp: la terminal se los muestra a quien pidió usuario para que te avise.</p>
+<h3 id="otras-acciones">Otras acciones</h3>
+<ul>
+<li><strong>Resetear contraseña</strong>: te pide una contraseña nueva para ese cajero y la guarda. Pasásela al cajero.</li>
+<li><strong>Cambiar correo</strong>: cambia el correo (tendrá que verificarlo de nuevo).</li>
+<li><strong>Dar de baja</strong>: el cajero deja de poder ingresar.</li>
+</ul>
+<p>Para que otro usuario sea administrador, pedíselo al superadmin: solo él puede nombrar administradores.</p>
+<h2 id="terminales">Terminales</h2>
+<p><strong>Operación → Terminales.</strong> Cada terminal aparece acá sola la primera vez que se conecta con kaja-bo (después de escanear el QR y tocar &quot;Reportar terminal a kaja-bo&quot;).</p>
+<p><strong>Asigná cada terminal a su sucursal</strong> con la lista de la columna <strong>Sucursal</strong>. De eso depende de qué local descuenta stock, qué dirección sale en el ticket y qué promociones se aplican.</p>
+<p><img src="img/bo-terminales.png" alt="Terminales y su sucursal"></p>
+<p><strong>Terminales reportados hoy</strong> muestra la última vez que cada terminal se comunicó: si una terminal no aparece, revisá que tenga conexión.</p>
+<h2 id="temas-de-kaja">Temas de kaja</h2>
+<p><strong>Operación → Temas de kaja.</strong> Un tema define los colores, el logo y los textos de la app en las terminales y en el ticket impreso.</p>
+<p><img src="img/bo-estilo.png" alt="Editor de temas"></p>
+<ul>
+<li><strong>+ Nuevo tema</strong> crea un tema; a la izquierda están los existentes (el marcado con ★ es el predeterminado).</li>
+<li><strong>Texto de bienvenida</strong>: el título de la pantalla de Venta.</li>
+<li><strong>Tema claro / Tema oscuro</strong>: los colores de cada variante (el cajero elige claro u oscuro en la terminal). A la derecha se ve una vista previa de cómo queda en el celular (Venta, Menú y Cobro).</li>
+<li><strong>Logo</strong>: la imagen que sale en la app y en el ticket.</li>
+<li><strong>Ticket</strong>: el mensaje de despedida al pie del ticket.</li>
+<li><strong>Terminales</strong>: marcá terminales y tocá <strong>Enviar este tema a las marcadas</strong> para que usen este tema; <strong>Quitar tema propio a las marcadas</strong> las vuelve al predeterminado. <strong>Usar como predeterminado</strong> lo aplica a todas las terminales sin tema propio.</li>
+</ul>
+<p>Las terminales bajan su tema en la próxima sincronización (cada 15 minutos) o al tocar &quot;Reportar terminal a kaja-bo&quot;.</p>
+<h2 id="eventos-y-entradas">Eventos y entradas</h2>
+<p><strong>Eventos.</strong> Sirve para vender entradas (con QR) y controlarlas en la puerta con la terminal.</p>
+<h3 id="crear-un-evento">Crear un evento</h3>
+<p>Completá <strong>Nombre</strong>, <strong>Fecha</strong>, <strong>Precio</strong> y cantidad de <strong>Entradas</strong>, y tocá <strong>Crear</strong>.</p>
+<p><img src="img/bo-evento-nuevo.png" alt="Nuevo evento"></p>
+<h3 id="vender-entradas-desde-kaja-bo">Vender entradas desde kaja-bo</h3>
+<p>En <strong>Vender entradas</strong> elegí el <strong>Evento</strong>, la <strong>Cantidad</strong>, el <strong>Mail del comprador</strong> (le llegan las entradas con su QR), opcionalmente el <strong>Nombre</strong>, la forma de pago y tocá <strong>Vender</strong>. Con tarjeta, el cobro se hace en la terminal configurada en la pestaña Cobrar.</p>
+<p><img src="img/bo-eventos.png" alt="Eventos y venta de entradas"></p>
+<p>Las entradas también se venden y se controlan desde la terminal (<a href="manual-cajero.html#eventos">manual del cajero</a>).</p>
+<h2 id="facturación-electrónica-ucfe">Facturación electrónica (UCFE)</h2>
+<p><strong>Fiscal → UCFE.</strong> Acá van los datos que Uruware asigna al dar de alta el comercio en UCFE, y los datos del emisor que salen en cada comprobante.</p>
+<p><img src="img/bo-ucfe.png" alt="Configuración de UCFE"></p>
+<ul>
+<li><strong>Modo prueba</strong>: con la casilla marcada no se llama a UCFE de verdad (se simulan las respuestas). Desmarcala recién cuando tengas los datos reales.</li>
+<li><strong>URL del servicio, Usuario, Contraseña, Código de comercio, Código de terminal</strong>: los da Uruware.</li>
+<li><strong>Datos del emisor</strong>: RUC, razón social, domicilio fiscal, ciudad y departamento.</li>
+</ul>
+<p>Tocá <strong>Guardar</strong>. La razón social y el RUC llegan solos a las terminales para el ticket.</p>
+<h2 id="ventas">Ventas</h2>
+<p><strong>Operación → Ventas.</strong> El resumen de todas las ventas: total vendido, aprobadas, cantidad, promedio diario y rechazadas, el gráfico por día y el detalle por sucursal. Filtrá por fechas (<strong>Desde / Hasta</strong>), <strong>Estado</strong> o <strong>Producto</strong>.</p>
+<p><img src="img/bo-ventas.png" alt="Ventas"></p>
+<h2 id="caja">Caja</h2>
+<p><strong>Operación → Caja.</strong> Todas las aperturas y cierres de caja de las terminales: monto inicial, cuánto contó el cajero al cerrar, cuánto se esperaba y la <strong>diferencia</strong>.</p>
+<p><img src="img/bo-caja.png" alt="Aperturas y cierres de caja"></p>
+<ul>
+<li>Las diferencias distintas de cero aparecen en rojo con <strong>Marcar revisado</strong>: tocalo cuando ya lo hayas controlado y deja de contar como alerta.</li>
+<li>Una caja abierta de días anteriores aparece con el aviso &quot;Abierta hace N días&quot;.</li>
+<li>Filtrá por <strong>Terminal</strong> o <strong>Sucursal</strong>, o marcá <strong>Solo diferencias sin revisar</strong>.</li>
+</ul>
+<h2 id="cobrar-desde-kaja-bo">Cobrar desde kaja-bo</h2>
+<p><strong>Operación → Cobrar.</strong> Permite armar una venta desde la computadora y cobrarla en efectivo o con tarjeta usando una terminal, y también <strong>Anular</strong> (ventas con tarjeta del lote abierto) y <strong>Devolver</strong> (ventas con tarjeta de un lote ya cerrado, total o parcial, con nota de crédito).</p>
+<p><img src="img/bo-cobrar.png" alt="Cobrar, anular y devolver desde kaja-bo"></p>
+<p>Antes de usarla por primera vez tocá <strong>Configurar terminal</strong> y elegí con qué <strong>Terminal</strong> se cobra con tarjeta (la terminal muestra el cobro sola, no hace falta estar al lado). El stock que descuenta esta pantalla es el de la columna Stock de Productos, no el de los locales.</p>
+<h3 id="systemid-de-itd-cobros-con-tarjeta">SystemId de ITD (cobros con tarjeta)</h3>
+<p>En ese mismo panel de <strong>Configurar terminal</strong> están los datos de ITD (Fiserv), el procesador de las tarjetas:</p>
+<ul>
+<li><strong>Modo prueba</strong>: con la casilla marcada se simula la aprobación sin llamar a ITD de verdad.</li>
+<li><strong>URL base</strong> y <strong>SystemId</strong>: los asigna Fiserv al comercio.</li>
+</ul>
+<p>Tocá <strong>Guardar</strong>. El SystemId se configura <strong>solo acá</strong>: las terminales lo bajan solas de kaja-bo, el cajero no lo carga.</p>
+<h2 id="conciliación">Conciliación</h2>
+<p><strong>Fiscal → Conciliación.</strong> Compara las ventas con tarjeta que tiene kaja-bo contra lo que ITD (el procesador de tarjetas) confirma. Solo informa diferencias: no cambia ninguna venta.</p>
+<p><img src="img/bo-conciliacion.png" alt="Conciliación contra ITD"></p>
+<ul>
+<li><strong>Ver conflictos</strong>: revisa el lote actual de todas las terminales y lista las diferencias. Lo que marcás como revisado no vuelve a aparecer.</li>
+<li><strong>Lote actual (hoy)</strong>: compara transacción por transacción contra el lote abierto, de una terminal o de todas.</li>
+<li><strong>Histórico</strong>: compara los totales por día de lotes ya cerrados.</li>
+</ul>
+<h2 id="reportes">Reportes</h2>
+<p><strong>Reportes</strong> tiene cinco pestañas:</p>
+<table>
+<thead>
+<tr>
+<th>Pestaña</th>
+<th>Qué muestra</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Ventas y crecimiento</strong></td>
+<td>Ingresos aprobados, ticket promedio, tasa de aprobación, ingresos por día y efectivo contra tarjeta.</td>
+</tr>
+<tr>
+<td><strong>Catálogo</strong></td>
+<td>Los 5 productos que más facturan y los que más unidades venden, y los productos sin stock.</td>
+</tr>
+<tr>
+<td><strong>Sucursales y cajeros</strong></td>
+<td>Ingresos por sucursal, ticket promedio por cajero y diferencias de caja acumuladas por terminal.</td>
+</tr>
+<tr>
+<td><strong>Operativo</strong></td>
+<td>Estado de las ventas por terminal (aprobadas, rechazadas, pendientes).</td>
+</tr>
+<tr>
+<td><strong>Eventos</strong></td>
+<td>Ingresos y aforo vendido por evento, y el detalle de entradas.</td>
+</tr>
+</tbody></table>
+<p><img src="img/bo-reporte-ventas.png" alt="Reporte de ventas y crecimiento"></p>
+<p><img src="img/bo-reporte-catalogo.png" alt="Reporte de catálogo"></p>
+<p><img src="img/bo-reporte-sucursales.png" alt="Reporte de sucursales y cajeros"></p>
+<p><img src="img/bo-reporte-operativo.png" alt="Reporte operativo"></p>
+<p><img src="img/bo-reporte-eventos.png" alt="Reporte de eventos"></p>
+
+
+</main>
+</body>
+</html>

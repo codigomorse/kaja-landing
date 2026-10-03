@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Manual del cajero (app kaja en la terminal)</title>
+<link rel="icon" href="../assets/icon.png">
+<style>
+:root { --bg: #ffffff; --texto: #1a1a1a; --suave: #5a5a5a; --borde: #e3e3e3; --acento: #8a6d00; --codigo: #f4f4f4; --cabecera: #fafafa; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --bg: #141518; --texto: #ededec; --suave: #a0a4ab; --borde: #2c2f36; --acento: #e4ff4d; --codigo: #1f2127; --cabecera: #1b1d22; }
+}
+:root[data-theme="dark"] { --bg: #141518; --texto: #ededec; --suave: #a0a4ab; --borde: #2c2f36; --acento: #e4ff4d; --codigo: #1f2127; --cabecera: #1b1d22; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--texto); font: 16px/1.6 system-ui, -apple-system, "Segoe UI", sans-serif; }
+main { max-width: 920px; margin: 0 auto; padding: 32px 16px 64px; }
+h1 { font-size: 2rem; line-height: 1.2; margin: 0 0 16px; }
+h2 { font-size: 1.45rem; margin: 48px 0 12px; padding-top: 12px; border-top: 1px solid var(--borde); }
+h3 { font-size: 1.15rem; margin: 28px 0 8px; }
+a { color: var(--acento); }
+img { display: block; max-width: 100%; height: auto; margin: 16px 0; border: 1px solid var(--borde); border-radius: 8px; }
+img[src*="/kaja-"] { max-width: 320px; }
+table { width: 100%; border-collapse: collapse; margin: 16px 0; display: block; overflow-x: auto; }
+th, td { text-align: left; padding: 8px 10px; border: 1px solid var(--borde); vertical-align: top; }
+th { background: var(--cabecera); }
+code { background: var(--codigo); padding: 1px 5px; border-radius: 4px; font-size: .92em; }
+blockquote { margin: 16px 0; padding: 8px 16px; border-left: 4px solid var(--acento); background: var(--cabecera); color: var(--suave); }
+@media print { img { break-inside: avoid; } h2 { break-after: avoid; } }
+</style>
+</head>
+<body>
+<main>
+<h1 id="manual-del-cajero-app-kaja-en-la-terminal">Manual del cajero (app kaja en la terminal)</h1>
+<p>kaja es la app de la terminal de cobro. Con ella el cajero abre y cierra la caja, vende (en efectivo o con tarjeta), anula, devuelve, consulta el stock y vende o controla entradas de eventos.</p>
+<p><a href="../index.html#manuales">← Volver al índice</a></p>
+<ul>
+<li><a href="#configurar-la-terminal">Configurar la terminal</a> (una sola vez, la hace el administrador o el técnico)</li>
+<li><a href="#ingresar">Ingresar</a></li>
+<li><a href="#el-men%C3%BA">El menú</a></li>
+<li><a href="#abrir-la-caja">Abrir la caja</a></li>
+<li><a href="#vender">Vender</a></li>
+<li><a href="#cerrar-la-caja">Cerrar la caja</a></li>
+<li><a href="#anular-una-venta">Anular una venta</a></li>
+<li><a href="#devoluci%C3%B3n">Devolución</a></li>
+<li><a href="#stock">Stock</a></li>
+<li><a href="#eventos">Eventos</a></li>
+<li><a href="#configuraci%C3%B3n">Configuración</a></li>
+</ul>
+<h2 id="configurar-la-terminal">Configurar la terminal</h2>
+<p>Una terminal nueva hay que conectarla con kaja-bo <strong>escaneando el QR</strong> que el superadmin entregó al crear el comercio. La dirección de kaja-bo y la clave del comercio <strong>no se escriben a mano</strong>: solo se cargan con el QR.</p>
+<ol>
+<li>En la pantalla de ingreso tocá el <strong>engranaje</strong> (arriba a la derecha) para abrir la <strong>Configuración</strong>.</li>
+<li>Escribí el <strong>Número de terminal</strong> (el que asigna Fiserv/ITD a esa terminal).</li>
+<li>Elegí cómo se cobra con tarjeta: <strong>App2App</strong> (la app de pagos de la misma terminal) o <strong>Fpinpad</strong> (un pinpad externo, con su IP). Si no sabés cuál, consultá con el técnico.</li>
+<li>Tocá <strong>Escanear QR de kaja-bo</strong> y apuntá la cámara al QR. Al leerlo, la pantalla dice <strong>&quot;kaja-bo configurado&quot;</strong>. Si dice &quot;QR no reconocido&quot;, ese no es el QR de configuración de kaja-bo.</li>
+<li>Tocá <strong>Guardar</strong>.</li>
+<li>Tocá <strong>Reportar terminal a kaja-bo</strong>: la terminal aparece en kaja-bo y baja el catálogo, el tema y los datos del comercio. Después el administrador la asigna a su sucursal.</li>
+</ol>
+<p><img src="img/kaja-escanear-qr.png" alt="Lector de QR de la terminal"></p>
+<blockquote>
+<p>Si se escanea el QR de <strong>otro comercio</strong>, la terminal borra el catálogo del comercio anterior y baja el del nuevo.</p>
+</blockquote>
+<h2 id="ingresar">Ingresar</h2>
+<p><img src="img/kaja-login.png" alt="Pantalla de ingreso"></p>
+<p>Ingresá con tu <strong>Usuario</strong> y <strong>Contraseña</strong> y tocá <strong>Ingresar</strong>.</p>
+<ul>
+<li><strong>Primer ingreso</strong>: te pide <strong>verificar tu correo</strong>. Te llega un código de 8 dígitos por mail; ingresalo para entrar.</li>
+<li><strong>¿No tenés usuario? Pedilo</strong>: completá tu nombre, usuario, correo y contraseña, y verificá el correo con el código. Tu usuario queda <strong>pendiente</strong> hasta que el administrador lo apruebe; la pantalla te ofrece avisarle por WhatsApp o por mail.</li>
+<li><strong>¿Olvidaste tu contraseña?</strong>: escribí el correo con el que verificaste tu usuario y te llega un link para elegir una contraseña nueva. El link vence en 30 minutos y sirve una sola vez.</li>
+</ul>
+<p>La sesión dura <strong>8 horas</strong>. Diez minutos antes de que termine aparece el aviso &quot;Tu sesión se cierra en 10 minutos&quot;: tocá <strong>Continuar</strong> para seguir 2 horas más.</p>
+<h2 id="el-menú">El menú</h2>
+<p>Tocá las tres rayas (arriba a la izquierda) para abrir el menú:</p>
+<p><img src="img/kaja-menu.png" alt="Menú de la app"></p>
+<ul>
+<li><strong>Operación</strong>: Venta, Anular, Devolución y Abrir/Cerrar caja.</li>
+<li><strong>Catálogo</strong>: Stock.</li>
+<li><strong>Eventos</strong>: venta y control de entradas.</li>
+<li><strong>Ajustes</strong>: Configuración.</li>
+</ul>
+<h2 id="abrir-la-caja">Abrir la caja</h2>
+<p>Sin una caja abierta no se puede cobrar ni vender entradas. La pantalla de Venta lo avisa con <strong>&quot;Abrí la caja para empezar a vender&quot;</strong>:</p>
+<p><img src="img/kaja-venta-caja-cerrada.png" alt="Venta con la caja cerrada"></p>
+<ol>
+<li>Tocá <strong>Ir a Caja</strong> (o, en el menú, <strong>Abrir caja</strong>).</li>
+<li>Escribí el <strong>Monto inicial</strong>: el efectivo con el que arranca la caja.</li>
+<li>Tocá <strong>Abrir caja</strong>.</li>
+</ol>
+<p><img src="img/kaja-caja-abrir.png" alt="Abrir caja"></p>
+<h2 id="vender">Vender</h2>
+<p>En la pantalla de <strong>Venta</strong> (con la caja abierta):</p>
+<ol>
+<li><strong>Agregá productos</strong>:<ul>
+<li>con el botón <strong>+</strong> (Agregar producto) los buscás por nombre o código;</li>
+<li>con el botón <strong>Escanear producto</strong> leés el código de barras.</li>
+</ul>
+</li>
+<li>En cada producto usá <strong>+</strong> / <strong>−</strong> para cambiar la cantidad o la <strong>X</strong> para quitarlo. Si un producto tiene una promoción vigente (por ejemplo 3x2), aparece la etiqueta <strong>Promo</strong> y el descuento ya está en el <strong>TOTAL</strong>.</li>
+<li>Tocá <strong>Cobrar</strong> y elegí <strong>¿Cómo paga?</strong>:<ul>
+<li><strong>Efectivo</strong>: escribí el <strong>Monto abonado</strong>; la terminal muestra el <strong>Vuelto</strong>. Tocá <strong>Confirmar</strong> (se habilita cuando el monto alcanza).</li>
+<li><strong>Tarjeta</strong>: la venta pasa a la app de pagos (o al pinpad). Seguí las instrucciones de la pantalla de pago y pasá la tarjeta.</li>
+</ul>
+</li>
+<li>Mientras se procesa, la pantalla muestra en qué paso está (&quot;Registrando venta en el servidor…&quot;, &quot;Enviando venta al aplicativo de pago…&quot;, &quot;Emitiendo comprobante fiscal…&quot;).</li>
+<li>Si la venta se <strong>aprueba</strong>, se imprime el ticket con el comprobante fiscal (CFE). Con <strong>Enviar CFE por correo</strong> se lo mandás al cliente por mail. Tocá <strong>Listo</strong> para empezar otra venta.</li>
+</ol>
+<p>Si algo sale mal:</p>
+<ul>
+<li><strong>Rechazado</strong>: la tarjeta fue rechazada. Podés <strong>Reintentar</strong> o cobrar de otra forma.</li>
+<li><strong>&quot;No reintentes el cobro: el resultado se va a resolver solo.&quot;</strong>: el procesador todavía no contestó. <strong>No vuelvas a cobrar</strong>: la venta se resuelve sola en unos minutos y queda registrada.</li>
+<li><strong>Comprobante fiscal pendiente</strong>: la venta se cobró pero el CFE no se pudo emitir en ese momento. Se reintenta solo; también podés tocar <strong>Reintentar CFE</strong>.</li>
+</ul>
+<p>El ícono de la <strong>impresora</strong> (arriba a la derecha en Venta) imprime un ticket de prueba.</p>
+<h2 id="cerrar-la-caja">Cerrar la caja</h2>
+<ol>
+<li>En el menú tocá <strong>Cerrar caja</strong>.</li>
+<li>Contá el efectivo y escribilo en <strong>Monto contado</strong>.</li>
+<li>Tocá <strong>Cerrar caja</strong>.</li>
+</ol>
+<p>Al cerrar la caja también se hace el <strong>cierre de lote</strong> de las tarjetas. kaja-bo compara lo contado con lo esperado y el administrador ve la diferencia.</p>
+<h2 id="anular-una-venta">Anular una venta</h2>
+<p>Se anulan ventas <strong>con tarjeta del lote actual</strong> (las de la caja abierta). Para ventas de días anteriores usá <a href="#devoluci%C3%B3n">Devolución</a>.</p>
+<ol>
+<li>En el menú tocá <strong>Anular</strong>.</li>
+<li>Escribí el <strong>Número de ticket</strong> (4 dígitos, está en el ticket impreso) y tocá <strong>Anular</strong>.</li>
+<li>Pasá <strong>la misma tarjeta</strong> por la terminal cuando lo pida.</li>
+</ol>
+<p><img src="img/kaja-anular.png" alt="Anular venta"></p>
+<p>Igual que en la venta: si dice &quot;No reintentes&quot;, esperá; el resultado se resuelve solo.</p>
+<h2 id="devolución">Devolución</h2>
+<p>Se devuelven ventas con tarjeta de un <strong>lote ya cerrado</strong> (días anteriores), en forma total o parcial. Se emite una nota de crédito y, si se devuelve todo, se repone el stock.</p>
+<ol>
+<li>En el menú tocá <strong>Devolución</strong>.</li>
+<li>Escribí el <strong>Número de ticket</strong> y tocá <strong>Buscar</strong>. Si ese número se repite entre días, elegí la venta correcta de la lista.</li>
+<li>Escribí el <strong>monto</strong> a devolver (todo o una parte) y tocá <strong>Devolver</strong>.</li>
+<li>Pasá <strong>la misma tarjeta</strong> cuando lo pida.</li>
+<li>Al terminar podés <strong>Imprimir</strong> el comprobante.</li>
+</ol>
+<p><img src="img/kaja-devolucion.png" alt="Devolución"></p>
+<h2 id="stock">Stock</h2>
+<p>En el menú tocá <strong>Stock</strong> para ver los productos del local con su precio y las unidades disponibles. Es solo de consulta: el stock lo carga el administrador en kaja-bo y se descuenta solo con cada venta.</p>
+<p><img src="img/kaja-stock.png" alt="Stock disponible"></p>
+<h2 id="eventos">Eventos</h2>
+<p>En el menú tocá <strong>Eventos</strong>.</p>
+<p><img src="img/kaja-eventos.png" alt="Eventos y entradas"></p>
+<ul>
+<li><strong>Escanear entrada</strong> (control en la puerta): tocá <strong>Elegir evento a controlar</strong>, elegí el evento y tocá <strong>Escanear</strong> para leer el QR de cada entrada. La pantalla dice <strong>Entrada válida</strong> o <strong>Entrada no válida</strong>, con el motivo (por ejemplo, que ya se usó).</li>
+<li><strong>Vender entradas</strong>: elegí el evento, la <strong>Cantidad</strong>, el <strong>Mail del comprador</strong> (le llegan las entradas con su QR) y, si querés, el nombre. Elegí <strong>Efectivo</strong> o <strong>Tarjeta</strong> y tocá <strong>Vender</strong>. Necesita la caja abierta.</li>
+</ul>
+<h2 id="configuración">Configuración</h2>
+<p>En el menú tocá <strong>Configuración</strong>.</p>
+<p><img src="img/kaja-configuracion.png" alt="Configuración de la terminal"></p>
+<ul>
+<li><strong>Tema oscuro</strong>: cambia los colores de la app.</li>
+<li><strong>Número de terminal</strong>, <strong>Fpinpad</strong> y <strong>App2App</strong>: ver <a href="#configurar-la-terminal">Configurar la terminal</a>.</li>
+<li><strong>kaja-bo configurado / sin configurar</strong>: indica si la terminal ya tiene cargado el QR del comercio.</li>
+<li><strong>Escanear QR de kaja-bo</strong>: para conectar la terminal con su comercio (o cambiarla de comercio).</li>
+<li><strong>Reportar terminal a kaja-bo</strong>: fuerza la sincronización (catálogo, stock, tema, promociones). Sin tocarlo, la terminal sincroniza sola cada 15 minutos.</li>
+<li><strong>Cajero</strong> y <strong>Cerrar sesión</strong>: muestra quién está ingresado y permite salir.</li>
+<li><strong>Guardar</strong>: guarda los cambios. Si salís con cambios sin guardar, la app te pregunta qué hacer.</li>
+</ul>
+
+
+</main>
+</body>
+</html>
