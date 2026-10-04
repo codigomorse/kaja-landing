@@ -35,7 +35,7 @@ blockquote { margin: 16px 0; padding: 8px 16px; border-left: 4px solid var(--ace
 <p><a href="../index.html#manuales">← Volver al índice</a></p>
 <ul>
 <li><a href="#configurar-la-terminal">Configurar la terminal</a> (una sola vez, la hace el administrador o el técnico)</li>
-<li><a href="#tu-usuario">Tu usuario</a>: ingresar, primer ingreso, pedir un usuario y recuperar la contraseña</li>
+<li><a href="#tu-usuario">Tu usuario</a>: ingresar, primer ingreso, pedir un usuario, si no podés ingresar y recuperar la contraseña</li>
 <li><a href="#el-men%C3%BA">El menú</a></li>
 <li><a href="#abrir-la-caja">Abrir la caja</a></li>
 <li><a href="#vender">Vender</a></li>
@@ -96,6 +96,36 @@ blockquote { margin: 16px 0; padding: 8px 16px; border-left: 4px solid var(--ace
 </li>
 </ol>
 <p>Cuando el administrador lo apruebe en kaja-bo (<a href="manual-administrador.html#cajeros-que-piden-usuario-desde-la-terminal">así lo ve él</a>), ya podés <a href="#ingresar">ingresar</a> con tu usuario y contraseña.</p>
+<h3 id="si-no-podés-ingresar">Si no podés ingresar</h3>
+<table>
+<thead>
+<tr>
+<th>Mensaje</th>
+<th>Qué pasa</th>
+<th>Qué hacer</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Tu cuenta está pendiente de aprobación</strong></td>
+<td>Pediste usuario y el administrador todavía no lo aprobó.</td>
+<td>Avisale al administrador para que lo apruebe en kaja-bo.</td>
+</tr>
+<tr>
+<td><strong>Usuario o contraseña incorrectos</strong></td>
+<td>El usuario o la contraseña están mal, o tu usuario fue dado de baja.</td>
+<td>Revisá lo que escribiste. Si está bien, usá &quot;¿Olvidaste tu contraseña?&quot; o consultá con el administrador.</td>
+</tr>
+<tr>
+<td><strong>Verificá tu correo</strong></td>
+<td>Es tu primer ingreso y tu correo todavía no está verificado.</td>
+<td>Seguí los pasos de <a href="#primer-ingreso-verificar-el-correo">Primer ingreso</a>.</td>
+</tr>
+<tr>
+<td><strong>No se pudo conectar con kaja-bo</strong></td>
+<td>La terminal no tiene conexión con kaja-bo.</td>
+<td>Revisá la red de la terminal y volvé a intentar.</td>
+</tr>
+</tbody></table>
 <h3 id="olvidaste-tu-contraseña">¿Olvidaste tu contraseña?</h3>
 <ol>
 <li><p>En la pantalla de ingreso tocá <strong>¿Olvidaste tu contraseña?</strong>.</p>
