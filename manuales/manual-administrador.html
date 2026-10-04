@@ -44,6 +44,8 @@ blockquote { margin: 16px 0; padding: 8px 16px; border-left: 4px solid var(--ace
 <li><a href="#cajeros">Cajeros</a></li>
 <li><a href="#terminales">Terminales</a></li>
 <li><a href="#temas-de-kaja">Temas de kaja</a></li>
+<li><a href="#m%C3%B3dulos">Módulos</a></li>
+<li><a href="#mesas">Mesas</a></li>
 <li><a href="#eventos-y-entradas">Eventos y entradas</a></li>
 <li><a href="#facturaci%C3%B3n-electr%C3%B3nica-ucfe">Facturación electrónica (UCFE)</a></li>
 <li><a href="#ventas">Ventas</a></li>
@@ -59,7 +61,7 @@ blockquote { margin: 16px 0; padding: 8px 16px; border-left: 4px solid var(--ace
 <h2 id="cómo-está-organizada-la-pantalla">Cómo está organizada la pantalla</h2>
 <p><img src="img/bo-inicio-admin.png" alt="Pantalla inicial del administrador"></p>
 <ul>
-<li><strong>Barra de íconos (izquierda)</strong>: agrupa las secciones. De arriba hacia abajo: <strong>Operación</strong> (ventas, cobrar, caja, terminales, temas), <strong>Catálogo</strong> (productos, promociones, stock), <strong>Gente</strong> (sucursales, cajeros), <strong>Eventos</strong>, <strong>Fiscal</strong> (UCFE, conciliación) y <strong>Reportes</strong>. Al tocar un ícono aparecen sus pestañas al lado.</li>
+<li><strong>Barra de íconos (izquierda)</strong>: agrupa las secciones. De arriba hacia abajo: <strong>Operación</strong> (ventas, cobrar, caja, terminales, mesas, temas, módulos), <strong>Catálogo</strong> (productos, promociones, stock), <strong>Gente</strong> (sucursales, cajeros), <strong>Eventos</strong>, <strong>Fiscal</strong> (UCFE, conciliación) y <strong>Reportes</strong>. Al tocar un ícono aparecen sus pestañas al lado.</li>
 <li><strong>Estado ahora</strong>: el recuadro de arriba a la izquierda muestra cuántas cajas están abiertas hoy, cuántas terminales reportaron y las <strong>alertas</strong> pendientes (diferencias de caja sin revisar, cajas sin cerrar de otro día, productos sin stock). Tocá una alerta para ir a resolverla.</li>
 <li><strong>Buscar</strong>: filtra las filas de las tablas de la pestaña que estás viendo (productos, cajeros, terminales, ventas, caja…).</li>
 <li><strong>Oscuro / Claro</strong>: cambia los colores de la página.</li>
@@ -160,6 +162,25 @@ blockquote { margin: 16px 0; padding: 8px 16px; border-left: 4px solid var(--ace
 <li><strong>Terminales</strong>: marcá terminales y tocá <strong>Enviar este tema a las marcadas</strong> para que usen este tema; <strong>Quitar tema propio a las marcadas</strong> las vuelve al predeterminado. <strong>Usar como predeterminado</strong> lo aplica a todas las terminales sin tema propio.</li>
 </ul>
 <p>Las terminales bajan su tema en la próxima sincronización (cada 15 minutos) o al tocar &quot;Reportar terminal a kaja-bo&quot;.</p>
+<h2 id="módulos">Módulos</h2>
+<p><strong>Operación → Módulos.</strong> Prende o apaga las partes opcionales de kaja-bo y de la app:</p>
+<ul>
+<li><strong>Eventos</strong>: venta y control de entradas.</li>
+<li><strong>Mesas</strong>: cuentas compartidas entre mozos, pagos divididos y propinas (para restaurantes).</li>
+</ul>
+<p><img src="img/bo-modulos.png" alt="Módulos"></p>
+<p>Un módulo apagado no aparece en kaja-bo, y las terminales lo esconden del menú en su próxima sincronización (cada 15 minutos, o enseguida si el cajero toca &quot;Reportar terminal a kaja-bo&quot;).</p>
+<h2 id="mesas">Mesas</h2>
+<p><strong>Operación → Mesas.</strong> Para restaurantes: cada local tiene sus mesas, y los mozos les cargan productos desde cualquier terminal de ese local. Primero prendé el módulo <strong>Mesas</strong> en <a href="#m%C3%B3dulos">Módulos</a>.</p>
+<ol>
+<li>En <strong>Local</strong>, elegí la sucursal.</li>
+<li>Escribí el <strong>Nombre</strong> de la mesa (por ejemplo, &quot;Mesa 1&quot; o &quot;Terraza 2&quot;).</li>
+<li>Tocá <strong>Crear</strong>.</li>
+</ol>
+<p><img src="img/bo-mesas.png" alt="Mesas de un local con sus cuentas abiertas"></p>
+<p>La tabla muestra cada mesa con su <strong>Cuenta</strong>: <strong>Libre</strong>, o el total consumido y cuánto se pagó hasta ahora. Se actualiza sola. <strong>Dar de baja</strong> saca la mesa de las terminales (si tiene una cuenta abierta, sigue hasta que se cierre).</p>
+<p>Cada terminal ve las mesas del local al que está asignada en <a href="#terminales">Terminales</a>: una terminal sin local no ve ninguna.</p>
+<p>Cómo se usan en la terminal (abrir la mesa, cargar productos, cobrar por partes con propina y cerrar): ver el <a href="manual-cajero.html#mesas">manual del cajero</a>. Al cerrar la mesa sale <strong>un solo comprobante</strong> con todos los productos y se descuenta el stock del local. Las propinas de cada mozo se ven en el reporte <a href="#reportes">Propinas</a>.</p>
 <h2 id="eventos-y-entradas">Eventos y entradas</h2>
 <p><strong>Eventos.</strong> Sirve para vender entradas (con QR) y controlarlas en la puerta con la terminal.</p>
 <h3 id="crear-un-evento">Crear un evento</h3>
@@ -209,7 +230,7 @@ blockquote { margin: 16px 0; padding: 8px 16px; border-left: 4px solid var(--ace
 <li><strong>Histórico</strong>: compara los totales por día de lotes ya cerrados.</li>
 </ul>
 <h2 id="reportes">Reportes</h2>
-<p><strong>Reportes</strong> tiene cinco pestañas:</p>
+<p><strong>Reportes</strong> tiene seis pestañas:</p>
 <table>
 <thead>
 <tr>
@@ -237,12 +258,17 @@ blockquote { margin: 16px 0; padding: 8px 16px; border-left: 4px solid var(--ace
 <td><strong>Eventos</strong></td>
 <td>Ingresos y aforo vendido por evento, y el detalle de entradas.</td>
 </tr>
+<tr>
+<td><strong>Propinas</strong></td>
+<td>Por cajero: cuántos pagos de mesas cobró, el monto cobrado (sin la propina) y la propina. Filtrá por <strong>Desde / Hasta</strong>.</td>
+</tr>
 </tbody></table>
 <p><img src="img/bo-reporte-ventas.png" alt="Reporte de ventas y crecimiento"></p>
 <p><img src="img/bo-reporte-catalogo.png" alt="Reporte de catálogo"></p>
 <p><img src="img/bo-reporte-sucursales.png" alt="Reporte de sucursales y cajeros"></p>
 <p><img src="img/bo-reporte-operativo.png" alt="Reporte operativo"></p>
 <p><img src="img/bo-reporte-eventos.png" alt="Reporte de eventos"></p>
+<p><img src="img/bo-reporte-propinas.png" alt="Reporte de propinas"></p>
 
 
 </main>
