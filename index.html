@@ -299,6 +299,7 @@
       <a href="#app">La app</a>
       <a href="#consola">La consola</a>
       <a href="#marca">Tu marca</a>
+      <a href="#mesas">Mesas</a>
       <a href="#eventos">Eventos</a>
       <a href="#ficha">Ficha técnica</a>
       <a href="#manuales">Manuales</a>
@@ -708,6 +709,36 @@
   </div>
 </section>
 
+<!-- ================= MESAS ================= -->
+<section id="mesas">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="pill pill-gold">Nuevo · Restaurantes</span>
+      <h2>Mesas compartidas y cuentas divididas como quiera la mesa.</h2>
+      <p>Cada mozo carga desde su caja, la cuenta se paga en las partes que pidan los clientes y al final sale una sola factura.</p>
+    </div>
+    <div class="duo">
+      <article class="sticker banner">
+        <h3>De la comanda a la cuenta dividida</h3>
+        <div class="ticket-steps">
+          <div class="ticket-step"><b>1</b><span>Abrís la mesa desde cualquier caja del local. Todos los mozos ven la misma cuenta y le van sumando productos.</span></div>
+          <div class="ticket-step"><b>2</b><span>A la hora de pagar, cada uno paga lo que quiere: “yo pongo 500”, “yo 300”, “yo el resto”. Sin dividir por ítems ni en partes iguales.</span></div>
+          <div class="ticket-step"><b>3</b><span>Cada pago lleva su propina (0, 10 o 15% o el monto que elijan) y su medio: efectivo con vuelto o tarjeta.</span></div>
+          <div class="ticket-step"><b>4</b><span>Cuando lo pagado cubre el total, la mesa se cierra con un solo e&#8209;Ticket con todos los productos, y el stock se descuenta una vez.</span></div>
+        </div>
+        <p>Si dos mozos cobran la misma mesa a la vez, kaja-bo reserva cada parte antes del cobro: nunca se cobra de más.</p>
+      </article>
+      <article class="sticker banner">
+        <div class="browser">
+          <div class="browser-bar"><i></i><i></i><i></i><span>kaja-bo · Mesas</span></div>
+          <img src="assets/consola-mesas.png" alt="Mesas de un local en kaja-bo, con el total de cada cuenta abierta y lo pagado">
+        </div>
+        <p>Desde la consola das de alta las mesas de cada local y ves las cuentas abiertas en vivo. El reporte de Propinas muestra cuánto juntó cada mozo. Se prende o se apaga por comercio, en Módulos.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
 <!-- ================= EVENTS + UCFE ================= -->
 <section id="eventos">
   <div class="wrap">
@@ -762,9 +793,10 @@
         <dl>
           <div><dt>Plataforma</dt><dd>Android nativa (Kotlin + Jetpack Compose)</dd></div>
           <div><dt>Hardware</dt><dd>Terminales Android con impresora y lector integrados (Ingenico/Landi USDK). Escaneo por cámara en cualquier Android.</dd></div>
-          <div><dt>Pantallas</dt><dd>Login · Venta · Anular · Devolución · Caja · Stock · Eventos · Configuración, desde un menú lateral</dd></div>
+          <div><dt>Pantallas</dt><dd>Login · Venta · Anular · Devolución · Caja · Stock · Mesas · Eventos · Configuración, desde un menú lateral</dd></div>
           <div><dt>Apariencia</dt><dd>Modo claro u oscuro · Tema de marca bajado de kaja-bo: logo, 9 colores, botón principal y texto de bienvenida</dd></div>
           <div><dt>Medios de cobro</dt><dd>Efectivo con vuelto · Tarjeta vía Fpinpad por red (Fiserv ITD) · App2App</dd></div>
+          <div><dt>Mesas</dt><dd>Cuenta compartida entre las cajas del local · Pagos por montos libres, cada uno con su propina y su medio de pago · Un solo e-Ticket al cerrar la mesa</dd></div>
           <div><dt>Operaciones</dt><dd>Anulación por ticket (lote del día) · Devolución total o parcial de días anteriores, con nota de crédito · Apertura y cierre de caja con arqueo y cierre de lote · Promociones automáticas · Venta y validación de entradas</dd></div>
           <div><dt>Ticket</dt><dd>Impresión automática con logo y despedida del tema · Encabezado con razón social, RUT y dirección de la sucursal · Promociones aplicadas · QR y código de seguridad del CFE · Animación en pantalla mientras imprime</dd></div>
           <div><dt>Datos locales</dt><dd>Catálogo, stock del local, promociones, eventos y ventas guardados en el equipo</dd></div>
@@ -777,7 +809,7 @@
         <dl>
           <div><dt>Acceso</dt><dd>Web, desde cualquier navegador; diseño adaptado a celular · Estilo clásico u oscuro</dd></div>
           <div><dt>Roles</dt><dd>Administrador con acceso total a su comercio · Cajero limitado a Cobrar y Anular · Varios comercios en la misma instalación, cada uno con sus datos separados</dd></div>
-          <div><dt>Módulos</dt><dd>Ventas · Cobrar · Caja · Terminales · Stock por local · Productos · Promociones · Sucursales · Cajeros · Eventos · UCFE · Conciliación · Reportes · Temas de kaja</dd></div>
+          <div><dt>Módulos</dt><dd>Ventas · Cobrar · Caja · Terminales · Stock por local · Productos · Promociones · Sucursales · Cajeros · Mesas · Eventos · UCFE · Conciliación · Reportes · Temas de kaja</dd></div>
           <div><dt>Indicadores</dt><dd>Total vendido · Aprobadas · Rechazadas · Cantidad de ventas · Promedio diario · Gráfico por día</dd></div>
           <div><dt>Filtros</dt><dd>Terminal · Sucursal · Rango de fechas · Estado (aprobada, rechazada, timeout) · Buscador global</dd></div>
           <div><dt>Detalle por venta</dt><dd>Fecha, terminal, ticket, monto, estado, medio de pago y artículos</dd></div>
@@ -785,7 +817,7 @@
           <div><dt>Caja</dt><dd>Aperturas y cierres por terminal con contado, esperado y diferencia · Alertas de cierres con diferencia y de cajas abiertas hace días · Diferencias marcables como revisadas</dd></div>
           <div><dt>Temas</dt><dd>Varios temas guardados · Editor con vista previa del celular y del ticket · Envío a las terminales elegidas o tema predeterminado · Versión aplicada por terminal</dd></div>
           <div><dt>Conciliación</dt><dd>Contra la procesadora (ITD): conflictos sin revisar, lote actual e histórico de cierres · Solo informa, no corrige</dd></div>
-          <div><dt>Reportes</dt><dd>Ventas y crecimiento · Catálogo · Sucursales y cajeros · Operativo · Eventos</dd></div>
+          <div><dt>Reportes</dt><dd>Ventas y crecimiento · Catálogo · Sucursales y cajeros · Operativo · Eventos · Propinas por cajero</dd></div>
           <div><dt>Cajeros</dt><dd>Altas, bajas, aprobación de solicitudes, correo verificado y reseteo de contraseña</dd></div>
           <div><dt>Cobro web</dt><dd>Carrito con buscador por nombre o código · Efectivo con vuelto · Tarjeta contra terminal · Anulación · Devolución · Modo prueba</dd></div>
         </dl>
