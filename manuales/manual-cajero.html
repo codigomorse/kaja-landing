@@ -149,6 +149,7 @@ blockquote { margin: 16px 0; padding: 8px 16px; border-left: 4px solid var(--ace
 <li><strong>Encomiendas</strong>: Despachar y Escanear remito. Aparece solo si el comercio usa el módulo de encomiendas.</li>
 <li><strong>Ajustes</strong>: Mensajes y Configuración.</li>
 </ul>
+<p>Si no entran todas las opciones, deslizá el menú hacia arriba para ver el resto.</p>
 <h2 id="abrir-la-caja">Abrir la caja</h2>
 <p>Sin una caja abierta no se puede cobrar ni vender entradas. La pantalla de Venta lo avisa con <strong>&quot;Abrí la caja para empezar a vender&quot;</strong>:</p>
 <p><img src="img/kaja-venta-caja-cerrada.png" alt="Venta con la caja cerrada"></p>
@@ -262,15 +263,18 @@ blockquote { margin: 16px 0; padding: 8px 16px; border-left: 4px solid var(--ace
 <li>En <strong>¿Quién paga el envío?</strong> elegí <strong>El que envía</strong> o <strong>El que recibe</strong>. Si paga el que envía, elegí <strong>Efectivo</strong> o <strong>Tarjeta</strong>.</li>
 <li>Tocá <strong>Cobrar $… y despachar</strong> (o <strong>Despachar</strong>, si paga el que recibe).</li>
 </ol>
+<p><img src="img/kaja-encomiendas-despachar.png" alt="Despachar una encomienda"></p>
 <p>Sale impreso el <strong>remito</strong> con su código y un QR: va pegado al paquete. Si la impresora falló, tocá <strong>Reimprimir remito</strong>. <strong>Nuevo despacho</strong> deja el formulario en blanco.</p>
 <h3 id="escanear-remito">Escanear remito</h3>
 <p>En el menú tocá <strong>Encomiendas → Escanear remito</strong> y tocá <strong>Escanear remito</strong> para leer el QR (o escribí el <strong>Código del remito</strong> y tocá <strong>Buscar</strong>). Aparece la encomienda con origen, destino, remitente, destinatario y cada movimiento con su fecha.</p>
+<p><img src="img/kaja-encomiendas-remito.png" alt="Encomienda escaneada, con el envío a cobrar al que recibe"></p>
 <ul>
 <li><strong>Pasar a</strong>: tocá el estado nuevo. El orden es <strong>Despachada → En camino → Recepcionada → En reparto → Entregada</strong>; se puede saltar hacia adelante. <strong>Recepcionada</strong> queda registrada en el local de la terminal; desde ahí puede volver a <strong>En camino</strong> (por ejemplo, para mandarla a otra agencia).</li>
 <li><strong>Paga el que recibe</strong>: si el envío no está pagado, elegí <strong>Efectivo</strong> o <strong>Tarjeta</strong> y tocá <strong>Cobrar $…</strong>. No se puede entregar sin cobrar.</li>
 <li><strong>Entregada</strong>: escribí en <strong>Recibido por</strong> el nombre y documento de quien la retira y tocá <strong>Entregada</strong>.</li>
 <li><strong>Reimprimir remito</strong> vuelve a imprimirlo. <strong>← Escanear otro</strong> vuelve al escáner.</li>
 </ul>
+<p><img src="img/kaja-encomiendas-estados.png" alt="Cambiar el estado o entregar la encomienda"></p>
 <p>Si aparece <strong>&quot;Cobrado, pero no se pudo avisar a kaja-bo&quot;</strong>, el cobro ya salió: tocá <strong>Reintentar aviso a kaja-bo</strong> y <strong>no vuelvas a cobrar</strong>.</p>
 <h2 id="configuración">Configuración</h2>
 <p>En el menú tocá <strong>Configuración</strong>.</p>
