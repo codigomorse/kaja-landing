@@ -301,6 +301,7 @@
       <a href="#marca">Tu marca</a>
       <a href="#mesas">Mesas</a>
       <a href="#encomiendas">Encomiendas</a>
+      <a href="#pasajes">Pasajes</a>
       <a href="#eventos">Eventos</a>
       <a href="#ficha">Ficha técnica</a>
       <a href="#manuales">Manuales</a>
@@ -466,7 +467,7 @@
           <h2 style="margin:0">kaja, la caja de tu mostrador.</h2>
         </div>
       </div>
-      <p>Android nativa, pensada para terminales de cobro con impresora y lector integrados. Un menú lateral con Venta, Mesas, Anular, Devolución, Caja, Eventos, Encomiendas, Mensajes y Configuración, todo a un toque, en modo claro u oscuro.</p>
+      <p>Android nativa, pensada para terminales de cobro con impresora y lector integrados. Un menú lateral con Venta, Mesas, Anular, Devolución, Caja, Eventos, Encomiendas, Pasajes, Mensajes y Configuración, todo a un toque, en modo claro u oscuro.</p>
     </div>
 
     <div class="phones">
@@ -771,6 +772,36 @@
   </div>
 </section>
 
+<!-- ================= PASAJES ================= -->
+<section id="pasajes">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="pill pill-gold">Nuevo · Ómnibus</span>
+      <h2>Pasajes con asiento, desde cualquier boletería.</h2>
+      <p>Cargás las frecuencias y sus coches, vendés eligiendo el asiento en el plano y el boleto sale con QR para controlarlo al subir.</p>
+    </div>
+    <div class="duo">
+      <article class="sticker banner">
+        <h3>De la frecuencia al boleto</h3>
+        <div class="ticket-steps">
+          <div class="ticket-step"><b>1</b><span>En kaja-bo armás cada frecuencia: origen, destino, hora, días de la semana y sus coches, cada uno común o de dos pisos.</span></div>
+          <div class="ticket-step"><b>2</b><span>En cualquier caja de cualquier local elegís la salida, tocás los asientos libres en el plano y cargás nombre y documento del pasajero.</span></div>
+          <div class="ticket-step"><b>3</b><span>Cobrás en efectivo o con tarjeta y sale el boleto con QR, uno por asiento. Si el pasajero quiere, también le llega por correo.</span></div>
+          <div class="ticket-step"><b>4</b><span>Al subir, el chofer escanea el QR: la caja dice si el boleto es válido, de quién es y qué asiento tiene.</span></div>
+        </div>
+        <p>Si dos boleterías eligen el mismo asiento a la vez, solo una lo vende: nunca se vende dos veces el mismo lugar.</p>
+      </article>
+      <article class="sticker banner">
+        <div class="browser">
+          <div class="browser-bar"><i></i><i></i><i></i><span>kaja-bo · Pasajes</span></div>
+          <img src="assets/consola-pasajes.png" alt="Plano de asientos en kaja-web: un coche común y uno de dos pisos, con los asientos ocupados tachados y dos elegidos">
+        </div>
+        <p>Desde la consola ves la lista de pasajeros de cada salida, anulás un boleto para liberar el asiento y reenviás los boletos por correo. También se vende desde kaja-web, en la computadora o el celular. Se prende o se apaga por comercio, en Módulos.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
 <!-- ================= EVENTS + UCFE ================= -->
 <section id="eventos">
   <div class="wrap">
@@ -825,16 +856,17 @@
         <dl>
           <div><dt>Plataforma</dt><dd>Android nativa (Kotlin + Jetpack Compose)</dd></div>
           <div><dt>Hardware</dt><dd>Terminales Android con impresora y lector integrados (Ingenico/Landi USDK). Escaneo por cámara en cualquier Android.</dd></div>
-          <div><dt>Pantallas</dt><dd>Login · Venta · Anular · Devolución · Caja · Mesas · Eventos · Encomiendas (Despachar · Escanear remito) · Mensajes · Configuración, desde un menú lateral</dd></div>
+          <div><dt>Pantallas</dt><dd>Login · Venta · Anular · Devolución · Caja · Mesas · Eventos · Encomiendas (Despachar · Escanear remito) · Pasajes · Mensajes · Configuración, desde un menú lateral</dd></div>
           <div><dt>Apariencia</dt><dd>Modo claro u oscuro · Tema de marca bajado de kaja-bo: logo, 9 colores, botón principal y texto de bienvenida</dd></div>
           <div><dt>Medios de cobro</dt><dd>Efectivo con vuelto · Tarjeta vía Fpinpad por red (Fiserv ITD) · App2App</dd></div>
           <div><dt>Mesas</dt><dd>Cuenta compartida entre las cajas del local · Pagos por montos libres, cada uno con su propina y su medio de pago · Un solo e-Ticket al cerrar la mesa</dd></div>
           <div><dt>Encomiendas</dt><dd>Despacho entre locales con remito QR impreso · Paga el que envía o el que recibe · Estados por agencia: despachada, en camino, recepcionada, en reparto y entregada con firma de quién recibe</dd></div>
+          <div><dt>Pasajes</dt><dd>Salidas del día de todos los orígenes · Plano por coche, común o de dos pisos · Boleto con QR por asiento, impreso y por correo · Control al subir escaneando el QR</dd></div>
           <div><dt>Operaciones</dt><dd>Anulación por ticket (lote del día) · Devolución total o parcial de días anteriores, con nota de crédito · Apertura y cierre de caja con arqueo y cierre de lote · Promociones automáticas · Venta y validación de entradas</dd></div>
           <div><dt>Ticket</dt><dd>Impresión automática con logo y despedida del tema · Encabezado con razón social, RUT y dirección de la sucursal · Promociones aplicadas · QR y código de seguridad del CFE · Animación en pantalla mientras imprime</dd></div>
           <div><dt>Datos locales</dt><dd>Catálogo, stock del local, promociones, eventos y ventas guardados en el equipo</dd></div>
           <div><dt>Sincronización</dt><dd>Ventas al instante con reintento automático · Stock, catálogo, promociones, eventos, tema y datos del comercio cada 15 min o manual</dd></div>
-          <div><dt>Sesión</dt><dd>Usuario por cajero, con alta por solicitud aprobada por el administrador · Correo verificado con código de 8 dígitos · Recuperación de contraseña por link que vence a los 30 min · 8 h con aviso y extensión</dd></div>
+          <div><dt>Sesión</dt><dd>Usuario por cajero, con alta por solicitud aprobada por el administrador · Correo verificado con código de 8 dígitos · Recuperación de contraseña por link que vence a los 30 min · 8 h con aviso y extensión · Bloqueo de 5 min a los 10 intentos fallidos</dd></div>
         </dl>
       </div>
       <div class="spec-col">
@@ -842,7 +874,7 @@
         <dl>
           <div><dt>Acceso</dt><dd>Web, desde cualquier navegador; diseño adaptado a celular · Estilo clásico u oscuro</dd></div>
           <div><dt>Roles</dt><dd>Administrador con acceso total a su comercio · Cajero limitado a Cobrar y Anular · Varios comercios en la misma instalación, cada uno con sus datos separados</dd></div>
-          <div><dt>Módulos</dt><dd>Ventas · Cobrar · Caja · Terminales · Stock por local · Productos · Promociones · Sucursales · Cajeros · Mesas · Eventos · Encomiendas · UCFE · Conciliación · Reportes · Temas de kaja</dd></div>
+          <div><dt>Módulos</dt><dd>Ventas · Cobrar · Caja · Terminales · Stock por local · Productos · Promociones · Sucursales · Cajeros · Mesas · Eventos · Encomiendas · Pasajes · UCFE · Conciliación · Reportes · Temas de kaja</dd></div>
           <div><dt>Indicadores</dt><dd>Total vendido · Aprobadas · Rechazadas · Cantidad de ventas · Promedio diario · Gráfico por día</dd></div>
           <div><dt>Filtros</dt><dd>Terminal · Sucursal · Rango de fechas · Estado (aprobada, rechazada, timeout) · Buscador global</dd></div>
           <div><dt>Detalle por venta</dt><dd>Fecha, terminal, ticket, monto, estado, medio de pago y artículos</dd></div>
@@ -884,12 +916,12 @@
     <div class="duo">
       <article class="sticker banner">
         <h3>Manual del administrador</h3>
-        <p>kaja-bo de punta a punta: sucursales, productos, stock por local, promociones, cajeros, terminales, temas, eventos, encomiendas, facturación electrónica, caja, conciliación y reportes.</p>
+        <p>kaja-bo de punta a punta: sucursales, productos, stock por local, promociones, cajeros, terminales, temas, eventos, encomiendas, pasajes, facturación electrónica, caja, conciliación y reportes.</p>
         <a class="btn btn-primary" href="manuales/manual-administrador.html" style="align-self:flex-start">Leer el manual</a>
       </article>
       <article class="sticker banner">
         <h3>Manual del cajero</h3>
-        <p>La app en la terminal: conectarla con el QR, ingresar, abrir y cerrar la caja, vender, anular, devolver, vender o controlar entradas y despachar o escanear encomiendas.</p>
+        <p>La app en la terminal: conectarla con el QR, ingresar, abrir y cerrar la caja, vender, anular, devolver, vender o controlar entradas, despachar o escanear encomiendas y vender o controlar pasajes.</p>
         <a class="btn btn-primary" href="manuales/manual-cajero.html" style="align-self:flex-start">Leer el manual</a>
       </article>
     </div>

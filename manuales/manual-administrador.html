@@ -174,6 +174,7 @@ blockquote { margin: 16px 0; padding: 8px 16px; border-left: 4px solid var(--ace
 <li><strong>Eventos</strong>: venta y control de entradas.</li>
 <li><strong>Mesas</strong>: cuentas compartidas entre mozos, pagos divididos y propinas (para restaurantes).</li>
 <li><strong>Encomiendas</strong>: despacho de envíos entre locales con remito QR y seguimiento por agencia.</li>
+<li><strong>Pasajes</strong>: frecuencias de ómnibus entre locales, venta de boletos eligiendo el asiento y control al subir.</li>
 </ul>
 <p><img src="img/bo-modulos.png" alt="Módulos"></p>
 <p>Un módulo apagado no aparece en kaja-bo, y las terminales lo esconden del menú en su próxima sincronización (cada 15 minutos, o enseguida si el cajero toca &quot;Reportar terminal a kaja-bo&quot;).</p>
@@ -202,6 +203,32 @@ blockquote { margin: 16px 0; padding: 8px 16px; border-left: 4px solid var(--ace
 <p>Las encomiendas se despachan en la terminal (<strong>Encomiendas → Despachar</strong>), que cobra el envío si lo paga el que envía e imprime el remito con su QR. En destino se escanea el remito (<strong>Encomiendas → Escanear remito</strong>) para recepcionarla, cobrarla si la paga el que recibe y entregarla. El paso a paso está en el <a href="manual-cajero.html#encomiendas">manual del cajero</a>.</p>
 <p>La tabla muestra cada encomienda con su <strong>Código</strong>, <strong>Fecha</strong>, <strong>Origen → destino</strong>, remitente, destinatario, <strong>Monto</strong> (y quién pagó, o si falta cobrar al destinatario) y <strong>Estado</strong>. Filtrá por <strong>Desde</strong>, <strong>Hasta</strong> y <strong>Estado</strong>; tocá una fila para ver todos sus movimientos, con la agencia y el usuario de cada uno.</p>
 <p>Los estados son <strong>Despachada → En camino → Recepcionada → En reparto → Entregada</strong>. Para marcarla <strong>Entregada</strong> tiene que estar pagada, se anota quién la recibió y esa persona firma en la pantalla del POS. La firma se ve en el historial de la encomienda (tocá la fila). El cobro del envío es una venta normal: aparece en <a href="#ventas">Ventas</a>, en la caja y en los reportes.</p>
+<h2 id="pasajes">Pasajes</h2>
+<p><strong>Operación → Pasajes.</strong> Para empresas de ómnibus: cada <a href="#sucursales">sucursal</a> es una parada (origen o destino). Primero prendé el módulo <strong>Pasajes</strong> en <a href="#m%C3%B3dulos">Módulos</a>.</p>
+<h3 id="crear-una-frecuencia">Crear una frecuencia</h3>
+<p>Una frecuencia es un viaje que se repite: sale de un local a una hora, ciertos días de la semana.</p>
+<ol>
+<li>Elegí el <strong>Origen</strong> y el <strong>Destino</strong> (tienen que ser distintos).</li>
+<li>Cargá la <strong>Hora</strong> de salida y el <strong>Precio</strong> del pasaje.</li>
+<li>Marcá los <strong>días</strong> en que sale (por defecto, de lunes a viernes).</li>
+<li>Armá los <strong>coches</strong>: cada coche tiene su <strong>Plano</strong> y sus <strong>Asientos</strong>.<ul>
+<li><strong>Común</strong>: asientos en filas de 2 + pasillo + 2 (44 por defecto).</li>
+<li><strong>Dos pisos</strong>: indicá cuántos asientos van <strong>En planta baja</strong>; el resto queda en la planta alta (60 y 12 por defecto).</li>
+<li><strong>+ Agregar coche</strong> suma otro coche a la misma salida (por ejemplo, un refuerzo); <strong>Quitar</strong> lo saca.</li>
+</ul>
+</li>
+<li>Dejá marcado <strong>Activa</strong> y tocá <strong>Crear</strong>.</li>
+</ol>
+<p><img src="img/bo-pasajes-frecuencia.png" alt="Nueva frecuencia con dos coches"></p>
+<p>La tabla <strong>Frecuencias</strong> muestra cada una con sus días, sus coches y su precio. <strong>Editar</strong> la carga arriba para cambiarla: no deja quitar un coche ni achicarlo si tiene asientos vendidos en salidas futuras. Desmarcar <strong>Activa</strong> la saca de la venta sin borrarla.</p>
+<h3 id="pasajeros-de-una-salida">Pasajeros de una salida</h3>
+<p>En <strong>Pasajeros</strong> elegí la <strong>Frecuencia</strong> y la <strong>Fecha</strong>: aparece cada boleto con su coche y asiento, el pasajero, su documento y el estado (<strong>Reservado</strong> mientras se cobra, <strong>Vendido</strong>, <strong>Subió</strong> o <strong>Anulado</strong>).</p>
+<ul>
+<li><strong>Anular</strong> libera el asiento para venderlo de nuevo. La plata se devuelve aparte, con una <a href="#devolver">devolución</a> de la venta.</li>
+<li><strong>Enviar por correo</strong> le manda al pasajero sus boletos con el QR, por si no dio el correo al comprar o no le llegó.</li>
+</ul>
+<p><img src="img/bo-pasajes-pasajeros.png" alt="Pasajeros de una salida"></p>
+<p>Los pasajes se venden en la terminal (<a href="manual-cajero.html#pasajes">manual del cajero</a>) y en <strong><a href="#pasajes-desde-kaja-web">kaja-web → Pasajes</a></strong>. Cada boleto es una venta normal, con su comprobante: aparece en <a href="#ventas">Ventas</a>, en la caja y en los reportes.</p>
 <h2 id="facturación-electrónica-ucfe">Facturación electrónica (UCFE)</h2>
 <p><strong>Fiscal → UCFE.</strong> Acá van los datos que Uruware asigna al dar de alta el comercio en UCFE, y los datos del emisor que salen en cada comprobante.</p>
 <p><img src="img/bo-ucfe.png" alt="Configuración de UCFE"></p>
@@ -271,6 +298,16 @@ blockquote { margin: 16px 0; padding: 8px 16px; border-left: 4px solid var(--ace
 <h3 id="encomiendas-desde-kaja-web">Encomiendas desde kaja-web</h3>
 <p><strong>kaja-web → Encomiendas.</strong> Escribí el <strong>Código del remito</strong> y tocá <strong>Buscar</strong> (o <strong>Escanear</strong>, en el celular con Android). Aparece la encomienda con sus movimientos y un botón por cada estado al que puede pasar. <strong>Recepcionada</strong> queda en el local de la terminal elegida en Cobrar. <strong>Entregada</strong> no está en kaja-web: exige la firma de quien la recibe y se hace en el POS (<strong>Escanear remito</strong>).</p>
 <p>En kaja-web solo se cambia el estado: despachar y cobrar el envío se hace en la terminal.</p>
+<h3 id="pasajes-desde-kaja-web">Pasajes desde kaja-web</h3>
+<p><strong>kaja-web → Pasajes.</strong> Aparecen las salidas del día de todos los orígenes, primero las del local de la terminal elegida en Cobrar; con <strong>Fecha</strong> ves las de otro día.</p>
+<ol>
+<li>Tocá una salida: se abre el plano de cada coche (en los de dos pisos, la planta baja y la alta). Los asientos ocupados están tachados.</li>
+<li>Tocá los asientos que querés vender y completá <strong>Nombre</strong> y <strong>Documento</strong> de cada pasajero.</li>
+<li>Tocá <strong>Efectivo</strong> o <strong>Tarjeta</strong>. Con tarjeta, cobra la terminal elegida en Cobrar.</li>
+<li>Aparecen los boletos con su QR: <strong>Imprimir</strong> los abre listos para la impresora del navegador, y <strong>Enviar por correo</strong> se los manda al pasajero.</li>
+</ol>
+<p><img src="img/bo-pasajes-web.png" alt="Plano de asientos en kaja-web"></p>
+<p>Si otro vendedor tomó un asiento mientras elegías, kaja-web avisa, actualiza el plano y suelta ese asiento: elegí otro y volvé a cobrar.</p>
 <h3 id="límites-de-kaja-web">Límites de kaja-web</h3>
 <ul>
 <li><strong>No imprime</strong>: kaja-web emite el comprobante electrónico, pero no imprime ticket.</li>

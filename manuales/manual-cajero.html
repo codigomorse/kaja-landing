@@ -123,6 +123,11 @@ blockquote { margin: 16px 0; padding: 8px 16px; border-left: 4px solid var(--ace
 <td>Seguí los pasos de <a href="#primer-ingreso-verificar-el-correo">Primer ingreso</a>.</td>
 </tr>
 <tr>
+<td><strong>Demasiados intentos: esperá unos minutos</strong></td>
+<td>Se escribió mal la contraseña 10 veces seguidas. El usuario queda bloqueado 5 minutos, para que nadie pueda adivinarla probando.</td>
+<td>Esperá 5 minutos y volvé a intentar. Si no te acordás de la contraseña, usá &quot;¿Olvidaste tu contraseña?&quot;.</td>
+</tr>
+<tr>
 <td><strong>No se pudo conectar con kaja-bo</strong></td>
 <td>La terminal no tiene conexión con kaja-bo.</td>
 <td>Revisá la red de la terminal y volvé a intentar.</td>
@@ -147,6 +152,7 @@ blockquote { margin: 16px 0; padding: 8px 16px; border-left: 4px solid var(--ace
 <li><strong>Operación</strong>: Venta, Mesas, Anular, Devolución y Abrir/Cerrar caja. <strong>Mesas</strong> aparece solo si el comercio usa el módulo de mesas.</li>
 <li><strong>Eventos</strong>: venta y control de entradas.</li>
 <li><strong>Encomiendas</strong>: Despachar y Escanear remito. Aparece solo si el comercio usa el módulo de encomiendas.</li>
+<li><strong>Pasajes</strong>: venta de boletos y control al subir. Aparece solo si el comercio usa el módulo de pasajes.</li>
 <li><strong>Ajustes</strong>: Mensajes y Configuración.</li>
 </ul>
 <p>Si no entran todas las opciones, deslizá el menú hacia arriba para ver el resto.</p>
@@ -276,6 +282,25 @@ blockquote { margin: 16px 0; padding: 8px 16px; border-left: 4px solid var(--ace
 </ul>
 <p><img src="img/kaja-encomiendas-estados.png" alt="Cambiar el estado o entregar la encomienda"></p>
 <p>Si aparece <strong>&quot;Cobrado, pero no se pudo avisar a kaja-bo&quot;</strong>, el cobro ya salió: tocá <strong>Reintentar aviso a kaja-bo</strong> y <strong>no vuelvas a cobrar</strong>.</p>
+<h2 id="pasajes">Pasajes</h2>
+<p>En el menú tocá <strong>Pasajes</strong>. Con el módulo apagado, no aparece en el menú.</p>
+<h3 id="vender-un-pasaje">Vender un pasaje</h3>
+<p>Vender necesita la <strong>caja abierta</strong>: cada boleto se cobra como una venta más, con ticket y comprobante.</p>
+<ol>
+<li>Aparecen las salidas de <strong>Hoy</strong>, de todos los orígenes: primero las que salen de tu local. Con <strong>&lt;** y **&gt;</strong> cambiás de día. Cada salida muestra la hora, el origen, el destino, los asientos libres y el precio.</li>
+<li>Tocá la salida. Se abre el plano de cada coche: en los <strong>Comunes</strong>, filas de 2 + pasillo + 2; en los de <strong>Dos pisos</strong>, la <strong>Planta baja</strong> y la <strong>Planta alta</strong>. Los asientos ocupados tienen una <strong>×</strong>.</li>
+<li>Tocá los asientos que vas a vender (se pintan de amarillo; tocalos otra vez para soltarlos) y completá <strong>Nombre</strong> y <strong>Documento</strong> de cada pasajero.</li>
+<li>Tocá <strong>Efectivo</strong> o <strong>Tarjeta</strong>.</li>
+</ol>
+<p>Al aprobarse sale el ticket de la venta y <strong>un boleto por asiento</strong>, con el viaje, la fecha, la hora, el coche, el asiento, el pasajero y un QR. Después podés <strong>Reimprimir boletos</strong> o, en <strong>¿Enviar los boletos por correo?</strong>, escribir el correo del pasajero y tocar <strong>Enviar por correo</strong>. <strong>Nueva venta</strong> vuelve a la lista de salidas.</p>
+<p>Mientras cobrás, los asientos quedan apartados para vos durante 10 minutos: otro vendedor no los puede vender. Si otro vendedor ganó un asiento antes de que cobraras, la terminal avisa, actualiza el plano y no cobra nada: elegí otro asiento.</p>
+<p>Si aparece <strong>&quot;Cobrado, pero no se pudo registrar en kaja-bo&quot;</strong>, el cobro ya salió: tocá <strong>Reintentar aviso a kaja-bo</strong> y <strong>no vuelvas a cobrar</strong>.</p>
+<h3 id="controlar-boletos-al-subir">Controlar boletos al subir</h3>
+<p>Tocá <strong>Controlar boleto (escanear)</strong> y leé el QR del boleto. No hace falta la caja abierta.</p>
+<ul>
+<li><strong>Boleto válido</strong>: muestra el coche, el asiento, el pasajero y su documento. El boleto queda marcado como usado.</li>
+<li><strong>Boleto no válido</strong>: muestra el motivo, por ejemplo que ya se usó, que está anulado o que es de otro día.</li>
+</ul>
 <h2 id="configuración">Configuración</h2>
 <p>En el menú tocá <strong>Configuración</strong>.</p>
 <p><img src="img/kaja-configuracion.png" alt="Configuración de la terminal"></p>
@@ -289,7 +314,7 @@ blockquote { margin: 16px 0; padding: 8px 16px; border-left: 4px solid var(--ace
 <li><strong>Guardar</strong>: guarda los cambios. Si salís con cambios sin guardar, la app te pregunta qué hacer.</li>
 </ul>
 <h2 id="vender-desde-la-computadora-o-el-celular-kaja-web">Vender desde la computadora o el celular (kaja-web)</h2>
-<p>Además de la terminal, podés vender desde <strong>kaja-bo</strong>, la página web del comercio, en una computadora o en el navegador del celular. Entrá con tu <strong>correo</strong> y la <strong>misma contraseña</strong> de la terminal: vas a ver solo <strong>kaja-web</strong>, con <strong>Cobrar</strong>, <strong>Anular</strong>, <strong>Devolver</strong>, <strong>Entradas</strong>, <strong>Mesas</strong> y <strong>Encomiendas</strong> (en la web solo se cambia el estado; despachar y cobrar envíos se hace en la terminal).</p>
+<p>Además de la terminal, podés vender desde <strong>kaja-bo</strong>, la página web del comercio, en una computadora o en el navegador del celular. Entrá con tu <strong>correo</strong> y la <strong>misma contraseña</strong> de la terminal: vas a ver solo <strong>kaja-web</strong>, con <strong>Cobrar</strong>, <strong>Anular</strong>, <strong>Devolver</strong>, <strong>Entradas</strong>, <strong>Mesas</strong>, <strong>Encomiendas</strong> (en la web solo se cambia el estado; despachar y cobrar envíos se hace en la terminal) y <strong>Pasajes</strong>.</p>
 <p><img src="img/bo-movil-cobrar.png" alt="Cobrar desde el celular"></p>
 <ul>
 <li>Funcionan igual que en la terminal; en el celular, Cobrar se ve como la pantalla de venta.</li>
