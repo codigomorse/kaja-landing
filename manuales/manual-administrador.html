@@ -36,6 +36,7 @@ blockquote { margin: 16px 0; padding: 8px 16px; border-left: 4px solid var(--ace
 <ul>
 <li><a href="#ingresar">Ingresar</a></li>
 <li><a href="#c%C3%B3mo-est%C3%A1-organizada-la-pantalla">Cómo está organizada la pantalla</a></li>
+<li><a href="#usar-kaja-bo-desde-el-celular">Usar kaja-bo desde el celular</a></li>
 <li><a href="#puesta-en-marcha">Puesta en marcha</a></li>
 <li><a href="#sucursales">Sucursales</a></li>
 <li><a href="#productos">Productos</a></li>
@@ -50,7 +51,7 @@ blockquote { margin: 16px 0; padding: 8px 16px; border-left: 4px solid var(--ace
 <li><a href="#facturaci%C3%B3n-electr%C3%B3nica-ucfe">Facturación electrónica (UCFE)</a></li>
 <li><a href="#ventas">Ventas</a></li>
 <li><a href="#caja">Caja</a></li>
-<li><a href="#cobrar-desde-kaja-bo">Cobrar desde kaja-bo</a></li>
+<li><a href="#kaja-web-vender-desde-kaja-bo">kaja-web: vender desde kaja-bo</a></li>
 <li><a href="#conciliaci%C3%B3n">Conciliación</a></li>
 <li><a href="#reportes">Reportes</a></li>
 </ul>
@@ -61,12 +62,16 @@ blockquote { margin: 16px 0; padding: 8px 16px; border-left: 4px solid var(--ace
 <h2 id="cómo-está-organizada-la-pantalla">Cómo está organizada la pantalla</h2>
 <p><img src="img/bo-inicio-admin.png" alt="Pantalla inicial del administrador"></p>
 <ul>
-<li><strong>Barra de íconos (izquierda)</strong>: agrupa las secciones. De arriba hacia abajo: <strong>Operación</strong> (ventas, cobrar, caja, terminales, mesas, temas, módulos), <strong>Catálogo</strong> (productos, promociones, stock), <strong>Gente</strong> (sucursales, cajeros), <strong>Eventos</strong>, <strong>Fiscal</strong> (UCFE, conciliación) y <strong>Reportes</strong>. Al tocar un ícono aparecen sus pestañas al lado.</li>
+<li><strong>Barra de íconos (izquierda)</strong>: agrupa las secciones. De arriba hacia abajo: <strong>Operación</strong> (ventas, caja, terminales, mesas, temas, módulos), <strong><a href="#kaja-web-vender-desde-kaja-bo">kaja-web</a></strong> (cobrar, anular, devolver, entradas, mesas), <strong>Catálogo</strong> (productos, promociones, stock), <strong>Gente</strong> (sucursales, cajeros), <strong>Eventos</strong>, <strong>Fiscal</strong> (UCFE, conciliación) y <strong>Reportes</strong>. Al tocar un ícono aparecen sus pestañas al lado.</li>
 <li><strong>Estado ahora</strong>: el recuadro de arriba a la izquierda muestra cuántas cajas están abiertas hoy, cuántas terminales reportaron y las <strong>alertas</strong> pendientes (diferencias de caja sin revisar, cajas sin cerrar de otro día, productos sin stock). Tocá una alerta para ir a resolverla.</li>
 <li><strong>Buscar</strong>: filtra las filas de las tablas de la pestaña que estás viendo (productos, cajeros, terminales, ventas, caja…).</li>
 <li><strong>Oscuro / Claro</strong>: cambia los colores de la página.</li>
 <li><strong>Salir</strong>: cierra la sesión.</li>
 </ul>
+<h2 id="usar-kaja-bo-desde-el-celular">Usar kaja-bo desde el celular</h2>
+<p>kaja-bo también se usa desde el navegador del celular. En una pantalla chica la barra de íconos se esconde: el botón <strong>☰</strong> (arriba a la izquierda) abre el menú con todas las secciones agrupadas, como el menú de la terminal, y se cierra solo al elegir una.</p>
+<p><img src="img/bo-movil-menu.png" alt="Menú de kaja-bo en el celular"></p>
+<p>La pantalla de <strong>Cobrar</strong> se ve igual que la venta de la terminal (ver <a href="#cobrar">kaja-web</a>), y los gráficos de los reportes se ajustan al ancho del teléfono.</p>
 <h2 id="puesta-en-marcha">Puesta en marcha</h2>
 <p>Para un comercio nuevo, cargá todo en este orden:</p>
 <ol>
@@ -181,15 +186,15 @@ blockquote { margin: 16px 0; padding: 8px 16px; border-left: 4px solid var(--ace
 <p>La tabla muestra cada mesa con su <strong>Cuenta</strong>: <strong>Libre</strong>, o el total consumido y cuánto se pagó hasta ahora. Se actualiza sola. <strong>Dar de baja</strong> saca la mesa de las terminales (si tiene una cuenta abierta, sigue hasta que se cierre).</p>
 <p>Cada terminal ve las mesas del local al que está asignada en <a href="#terminales">Terminales</a>: una terminal sin local no ve ninguna.</p>
 <p>Cómo se usan en la terminal (abrir la mesa, cargar productos, cobrar por partes con propina y cerrar): ver el <a href="manual-cajero.html#mesas">manual del cajero</a>. Al cerrar la mesa sale <strong>un solo comprobante</strong> con todos los productos y se descuenta el stock del local. Las propinas de cada mozo se ven en el reporte <a href="#reportes">Propinas</a>.</p>
+<p>Las mesas también se pueden atender desde la computadora o el celular, en <strong><a href="#mesas-desde-kaja-web">kaja-web → Mesas</a></strong>.</p>
 <h2 id="eventos-y-entradas">Eventos y entradas</h2>
 <p><strong>Eventos.</strong> Sirve para vender entradas (con QR) y controlarlas en la puerta con la terminal.</p>
 <h3 id="crear-un-evento">Crear un evento</h3>
 <p>Completá <strong>Nombre</strong>, <strong>Fecha</strong>, <strong>Precio</strong> y cantidad de <strong>Entradas</strong>, y tocá <strong>Crear</strong>.</p>
 <p><img src="img/bo-evento-nuevo.png" alt="Nuevo evento"></p>
-<h3 id="vender-entradas-desde-kaja-bo">Vender entradas desde kaja-bo</h3>
-<p>En <strong>Vender entradas</strong> elegí el <strong>Evento</strong>, la <strong>Cantidad</strong>, el <strong>Mail del comprador</strong> (le llegan las entradas con su QR), opcionalmente el <strong>Nombre</strong>, la forma de pago y tocá <strong>Vender</strong>. Con tarjeta, el cobro se hace en la terminal configurada en la pestaña Cobrar.</p>
-<p><img src="img/bo-eventos.png" alt="Eventos y venta de entradas"></p>
-<p>Las entradas también se venden y se controlan desde la terminal (<a href="manual-cajero.html#eventos">manual del cajero</a>).</p>
+<p>La tabla <strong>Eventos</strong> muestra cada evento con su fecha, precio y cuántas entradas se vendieron.</p>
+<p><img src="img/bo-eventos.png" alt="Eventos"></p>
+<p>Las entradas se venden desde <strong><a href="#entradas">kaja-web → Entradas</a></strong>, y también se venden y se controlan desde la terminal (<a href="manual-cajero.html#eventos">manual del cajero</a>).</p>
 <h2 id="facturación-electrónica-ucfe">Facturación electrónica (UCFE)</h2>
 <p><strong>Fiscal → UCFE.</strong> Acá van los datos que Uruware asigna al dar de alta el comercio en UCFE, y los datos del emisor que salen en cada comprobante.</p>
 <p><img src="img/bo-ucfe.png" alt="Configuración de UCFE"></p>
@@ -210,10 +215,22 @@ blockquote { margin: 16px 0; padding: 8px 16px; border-left: 4px solid var(--ace
 <li>Una caja abierta de días anteriores aparece con el aviso &quot;Abierta hace N días&quot;.</li>
 <li>Filtrá por <strong>Terminal</strong> o <strong>Sucursal</strong>, o marcá <strong>Solo diferencias sin revisar</strong>.</li>
 </ul>
-<h2 id="cobrar-desde-kaja-bo">Cobrar desde kaja-bo</h2>
-<p><strong>Operación → Cobrar.</strong> Permite armar una venta desde la computadora y cobrarla en efectivo o con tarjeta usando una terminal, y también <strong>Anular</strong> (ventas con tarjeta del lote abierto) y <strong>Devolver</strong> (ventas con tarjeta de un lote ya cerrado, total o parcial, con nota de crédito).</p>
-<p><img src="img/bo-cobrar.png" alt="Cobrar, anular y devolver desde kaja-bo"></p>
-<p>Antes de usarla por primera vez tocá <strong>Configurar terminal</strong> y elegí con qué <strong>Terminal</strong> se cobra con tarjeta (la terminal muestra el cobro sola, no hace falta estar al lado). El stock que descuenta esta pantalla es el de la columna Stock de Productos, no el de los locales.</p>
+<h2 id="kaja-web-vender-desde-kaja-bo">kaja-web: vender desde kaja-bo</h2>
+<p><strong>kaja-web</strong> son las pantallas de la terminal, pero en kaja-bo: <strong>Cobrar</strong>, <strong>Anular</strong>, <strong>Devolver</strong>, <strong>Entradas</strong> (con el módulo Eventos) y <strong>Mesas</strong> (con el módulo Mesas). Sirven para vender desde una computadora o un celular, contra una terminal de cobro del comercio.</p>
+<ul>
+<li><strong>Quién las usa</strong>: el administrador, y también los <strong>cajeros</strong>: entrando a kaja-bo con su correo y la misma contraseña de la terminal, un cajero ve <strong>solo</strong> kaja-web (nada de reportes, productos ni configuración).</li>
+<li><strong>La terminal elegida</strong>: todas cobran con tarjeta en la terminal que se elige en <strong>Cobrar → Configurar terminal</strong>. La terminal muestra el cobro sola, no hace falta estar al lado. Anular, Devolver, Entradas y Mesas muestran arriba cuál es.</li>
+<li><strong>Caja abierta</strong>: para cobrar, esa terminal tiene que tener la caja abierta.</li>
+</ul>
+<h3 id="cobrar">Cobrar</h3>
+<p><strong>kaja-web → Cobrar.</strong> Buscá los productos por nombre o código de barras y agregalos al carrito; ajustá las cantidades con <strong>−</strong> y <strong>+</strong> o sacalos con <strong>Quitar</strong>. Las promociones se aplican solas. Tocá <strong>Cobrar</strong> y elegí <strong>Efectivo</strong> o <strong>Tarjeta</strong>.</p>
+<p><img src="img/bo-cobrar.png" alt="Cobrar desde kaja-bo"></p>
+<p>Antes de usarla por primera vez tocá <strong>Configurar terminal</strong> y elegí con qué <strong>Terminal</strong> se cobra. El stock que se descuenta es el del local de esa terminal.</p>
+<ul>
+<li><strong>Lector de códigos de barras</strong>: en la computadora funciona un lector de mano (USB o Bluetooth). Al abrir Cobrar el buscador ya queda listo: cada lectura agrega el producto con ese código exacto.</li>
+<li><strong>En el celular</strong>: la pantalla es igual a la venta de la terminal: botón <strong>+</strong> para buscar productos, el <strong>TOTAL</strong> y <strong>Cobrar</strong>, y cada producto con <strong>−</strong>, el tacho y <strong>+</strong>. En Android, con kaja-bo abierto en una dirección <code>https://</code>, aparece también el botón de <strong>escanear con la cámara</strong>.</li>
+</ul>
+<p><img src="img/bo-movil-cobrar.png" alt="Cobrar desde el celular"></p>
 <h3 id="systemid-de-itd-cobros-con-tarjeta">SystemId de ITD (cobros con tarjeta)</h3>
 <p>En ese mismo panel de <strong>Configurar terminal</strong> están los datos de ITD (Fiserv), el procesador de las tarjetas:</p>
 <ul>
@@ -221,6 +238,34 @@ blockquote { margin: 16px 0; padding: 8px 16px; border-left: 4px solid var(--ace
 <li><strong>URL base</strong> y <strong>SystemId</strong>: los asigna Fiserv al comercio.</li>
 </ul>
 <p>Tocá <strong>Guardar</strong>. El SystemId se configura <strong>solo acá</strong>: las terminales lo bajan solas de kaja-bo, el cajero no lo carga.</p>
+<h3 id="anular">Anular</h3>
+<p><strong>kaja-web → Anular.</strong> Anula una venta con tarjeta <strong>del lote abierto</strong> (antes del cierre de Fiserv de las 23 h). Escribí el número de <strong>Ticket</strong> y tocá <strong>Anular</strong>. Se anula contra la terminal elegida en Cobrar, que tiene que ser la misma que hizo el cobro.</p>
+<p><img src="img/bo-anular.png" alt="Anular una venta"></p>
+<h3 id="devolver">Devolver</h3>
+<p><strong>kaja-web → Devolver.</strong> Devuelve, total o en parte, una venta con tarjeta de un <strong>lote ya cerrado</strong> (para el lote abierto usá Anular). Completá el <strong>Ticket</strong>, la <strong>Fecha de la venta</strong> y, si es una devolución parcial, el <strong>Monto</strong> (vacío = el total). Se emite la nota de crédito; si se devuelve el total, se repone el stock.</p>
+<p><img src="img/bo-devolver.png" alt="Devolver una venta"></p>
+<h3 id="entradas">Entradas</h3>
+<p><strong>kaja-web → Entradas.</strong> Elegí el <strong>Evento</strong>, la <strong>Cantidad</strong>, el <strong>Mail del comprador</strong> (le llegan las entradas con su QR), opcionalmente el <strong>Nombre</strong>, la forma de pago y tocá <strong>Vender</strong>. Los eventos se crean en <a href="#eventos-y-entradas">Eventos</a>.</p>
+<p><img src="img/bo-entradas.png" alt="Vender entradas desde kaja-bo"></p>
+<h3 id="mesas-desde-kaja-web">Mesas desde kaja-web</h3>
+<p><strong>kaja-web → Mesas.</strong> Se atienden las mesas del local de la terminal elegida, igual que en la terminal: varios mozos pueden cargar la misma mesa a la vez, desde la web o desde las terminales. Las mesas se crean en <a href="#mesas">Operación → Mesas</a>.</p>
+<p><img src="img/bo-mesas-web.png" alt="Mesas del local"></p>
+<p>Las mesas ocupadas se ven resaltadas, con lo consumido y lo que falta pagar; las libres dicen &quot;Libre&quot;. Tocá una mesa para abrirla:</p>
+<ul>
+<li><strong>Agregar producto</strong>: buscalo por nombre o código de barras (también con el lector de mano). Cada producto suma uno a la cuenta.</li>
+<li><strong>Quitar</strong>: saca un producto, salvo que ya se haya cobrado parte de él.</li>
+<li>La cuenta muestra el <strong>Total</strong>, lo <strong>Pagado</strong>, lo que se está <strong>Cobrando</strong> y lo que <strong>Falta pagar</strong>, con cada pago, su propina y quién lo cobró.</li>
+</ul>
+<p><img src="img/bo-mesas-web-cuenta.png" alt="Cuenta de una mesa"></p>
+<p><strong>Cobrar una parte</strong>: escribí el <strong>Monto</strong> (por defecto, lo que falta), elegí la <strong>Propina</strong> (<strong>Sin</strong>, <strong>10%</strong>, <strong>15%</strong> u <strong>Otra</strong> para escribirla) y tocá <strong>Efectivo</strong> o <strong>Tarjeta</strong>. Con tarjeta se cobra en la terminal elegida, con la propina aparte. Nunca se puede cobrar más de lo que falta, aunque dos personas cobren la misma mesa a la vez.</p>
+<p><img src="img/bo-mesas-web-cobrar.png" alt="Cobrar una parte con propina"></p>
+<p>Si aparece <strong>&quot;ITD no confirmó el cobro. Revisá el pinpad antes de volver a cobrar.&quot;</strong>, mirá en la terminal si el cobro salió antes de repetirlo: esa parte queda &quot;cobrándose&quot; unos minutos.</p>
+<p>Con todo pagado, <strong>Cerrar mesa y emitir CFE</strong> emite <strong>un solo comprobante</strong> con todos los productos, descuenta el stock del local y deja la mesa libre. Una mesa sin productos (abierta por error) se cierra con <strong>Liberar mesa</strong>.</p>
+<h3 id="límites-de-kaja-web">Límites de kaja-web</h3>
+<ul>
+<li><strong>No imprime</strong>: kaja-web emite el comprobante electrónico, pero no imprime ticket.</li>
+<li><strong>Arqueo de la terminal</strong>: el efectivo que se cobra desde kaja-web no entra en el arqueo que hace la terminal al cerrar la caja.</li>
+</ul>
 <h2 id="conciliación">Conciliación</h2>
 <p><strong>Fiscal → Conciliación.</strong> Compara las ventas con tarjeta que tiene kaja-bo contra lo que ITD (el procesador de tarjetas) confirma. Solo informa diferencias: no cambia ninguna venta.</p>
 <p><img src="img/bo-conciliacion.png" alt="Conciliación contra ITD"></p>
