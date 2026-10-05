@@ -31,7 +31,7 @@ blockquote { margin: 16px 0; padding: 8px 16px; border-left: 4px solid var(--ace
 <body>
 <main>
 <h1 id="manual-del-cajero-app-kaja-en-la-terminal">Manual del cajero (app kaja en la terminal)</h1>
-<p>kaja es la app de la terminal de cobro. Con ella el cajero abre y cierra la caja, vende (en efectivo o con tarjeta), cobra mesas, anula, devuelve, consulta el stock y vende o controla entradas de eventos.</p>
+<p>kaja es la app de la terminal de cobro. Con ella el cajero abre y cierra la caja, vende (en efectivo o con tarjeta), cobra mesas, anula, devuelve, consulta el stock, vende o controla entradas de eventos y despacha y recibe encomiendas.</p>
 <p><a href="../index.html#manuales">← Volver al índice</a></p>
 <ul>
 <li><a href="#configurar-la-terminal">Configurar la terminal</a> (una sola vez, la hace el administrador o el técnico)</li>
@@ -45,6 +45,7 @@ blockquote { margin: 16px 0; padding: 8px 16px; border-left: 4px solid var(--ace
 <li><a href="#devoluci%C3%B3n">Devolución</a></li>
 <li><a href="#stock">Stock</a></li>
 <li><a href="#eventos">Eventos</a></li>
+<li><a href="#encomiendas">Encomiendas</a>: despachar y escanear remitos</li>
 <li><a href="#configuraci%C3%B3n">Configuración</a></li>
 <li><a href="#vender-desde-la-computadora-o-el-celular-kaja-web">Vender desde la computadora o el celular (kaja-web)</a></li>
 </ul>
@@ -147,7 +148,8 @@ blockquote { margin: 16px 0; padding: 8px 16px; border-left: 4px solid var(--ace
 <li><strong>Operación</strong>: Venta, Mesas, Anular, Devolución y Abrir/Cerrar caja. <strong>Mesas</strong> aparece solo si el comercio usa el módulo de mesas.</li>
 <li><strong>Catálogo</strong>: Stock.</li>
 <li><strong>Eventos</strong>: venta y control de entradas.</li>
-<li><strong>Ajustes</strong>: Configuración.</li>
+<li><strong>Encomiendas</strong>: Despachar y Escanear remito. Aparece solo si el comercio usa el módulo de encomiendas.</li>
+<li><strong>Ajustes</strong>: Mensajes y Configuración.</li>
 </ul>
 <h2 id="abrir-la-caja">Abrir la caja</h2>
 <p>Sin una caja abierta no se puede cobrar ni vender entradas. La pantalla de Venta lo avisa con <strong>&quot;Abrí la caja para empezar a vender&quot;</strong>:</p>
@@ -253,6 +255,28 @@ blockquote { margin: 16px 0; padding: 8px 16px; border-left: 4px solid var(--ace
 <li><strong>Escanear entrada</strong> (control en la puerta): tocá <strong>Elegir evento a controlar</strong>, elegí el evento y tocá <strong>Escanear</strong> para leer el QR de cada entrada. La pantalla dice <strong>Entrada válida</strong> o <strong>Entrada no válida</strong>, con el motivo (por ejemplo, que ya se usó).</li>
 <li><strong>Vender entradas</strong>: elegí el evento, la <strong>Cantidad</strong>, el <strong>Mail del comprador</strong> (le llegan las entradas con su QR) y, si querés, el nombre. Elegí <strong>Efectivo</strong> o <strong>Tarjeta</strong> y tocá <strong>Vender</strong>. Necesita la caja abierta.</li>
 </ul>
+<h2 id="encomiendas">Encomiendas</h2>
+<p>Para agencias de envíos: cada local del comercio es una agencia. La encomienda se despacha en un local, viaja y se entrega en otro. Con el módulo apagado, el grupo <strong>Encomiendas</strong> no aparece en el menú.</p>
+<p>El envío lo paga <strong>el que envía</strong> (se cobra al despachar) o <strong>el que recibe</strong> (se cobra antes de entregar). Se cobra como una venta más, en efectivo o con tarjeta, con ticket y comprobante; por eso hace falta la <strong>caja abierta</strong>.</p>
+<h3 id="despachar">Despachar</h3>
+<p>En el menú tocá <strong>Encomiendas → Despachar</strong>.</p>
+<ol>
+<li>Elegí la <strong>Agencia de destino</strong>.</li>
+<li>Completá <strong>Remitente</strong> y <strong>Destinatario</strong> (obligatorios), sus teléfonos y, si va a domicilio, la <strong>Dirección de entrega</strong>. <strong>Contenido</strong> es opcional.</li>
+<li>Cargá la cantidad de <strong>Bultos</strong> y el <strong>Precio del envío</strong>.</li>
+<li>En <strong>¿Quién paga el envío?</strong> elegí <strong>El que envía</strong> o <strong>El que recibe</strong>. Si paga el que envía, elegí <strong>Efectivo</strong> o <strong>Tarjeta</strong>.</li>
+<li>Tocá <strong>Cobrar $… y despachar</strong> (o <strong>Despachar</strong>, si paga el que recibe).</li>
+</ol>
+<p>Sale impreso el <strong>remito</strong> con su código y un QR: va pegado al paquete. Si la impresora falló, tocá <strong>Reimprimir remito</strong>. <strong>Nuevo despacho</strong> deja el formulario en blanco.</p>
+<h3 id="escanear-remito">Escanear remito</h3>
+<p>En el menú tocá <strong>Encomiendas → Escanear remito</strong> y tocá <strong>Escanear remito</strong> para leer el QR (o escribí el <strong>Código del remito</strong> y tocá <strong>Buscar</strong>). Aparece la encomienda con origen, destino, remitente, destinatario y cada movimiento con su fecha.</p>
+<ul>
+<li><strong>Pasar a</strong>: tocá el estado nuevo. El orden es <strong>Despachada → En camino → Recepcionada → En reparto → Entregada</strong>; se puede saltar hacia adelante. <strong>Recepcionada</strong> queda registrada en el local de la terminal; desde ahí puede volver a <strong>En camino</strong> (por ejemplo, para mandarla a otra agencia).</li>
+<li><strong>Paga el que recibe</strong>: si el envío no está pagado, elegí <strong>Efectivo</strong> o <strong>Tarjeta</strong> y tocá <strong>Cobrar $…</strong>. No se puede entregar sin cobrar.</li>
+<li><strong>Entregada</strong>: escribí en <strong>Recibido por</strong> el nombre y documento de quien la retira y tocá <strong>Entregada</strong>.</li>
+<li><strong>Reimprimir remito</strong> vuelve a imprimirlo. <strong>← Escanear otro</strong> vuelve al escáner.</li>
+</ul>
+<p>Si aparece <strong>&quot;Cobrado, pero no se pudo avisar a kaja-bo&quot;</strong>, el cobro ya salió: tocá <strong>Reintentar aviso a kaja-bo</strong> y <strong>no vuelvas a cobrar</strong>.</p>
 <h2 id="configuración">Configuración</h2>
 <p>En el menú tocá <strong>Configuración</strong>.</p>
 <p><img src="img/kaja-configuracion.png" alt="Configuración de la terminal"></p>
@@ -266,7 +290,7 @@ blockquote { margin: 16px 0; padding: 8px 16px; border-left: 4px solid var(--ace
 <li><strong>Guardar</strong>: guarda los cambios. Si salís con cambios sin guardar, la app te pregunta qué hacer.</li>
 </ul>
 <h2 id="vender-desde-la-computadora-o-el-celular-kaja-web">Vender desde la computadora o el celular (kaja-web)</h2>
-<p>Además de la terminal, podés vender desde <strong>kaja-bo</strong>, la página web del comercio, en una computadora o en el navegador del celular. Entrá con tu <strong>correo</strong> y la <strong>misma contraseña</strong> de la terminal: vas a ver solo <strong>kaja-web</strong>, con <strong>Cobrar</strong>, <strong>Anular</strong>, <strong>Devolver</strong>, <strong>Entradas</strong> y <strong>Mesas</strong>.</p>
+<p>Además de la terminal, podés vender desde <strong>kaja-bo</strong>, la página web del comercio, en una computadora o en el navegador del celular. Entrá con tu <strong>correo</strong> y la <strong>misma contraseña</strong> de la terminal: vas a ver solo <strong>kaja-web</strong>, con <strong>Cobrar</strong>, <strong>Anular</strong>, <strong>Devolver</strong>, <strong>Entradas</strong>, <strong>Mesas</strong> y <strong>Encomiendas</strong> (en la web solo se cambia el estado; despachar y cobrar envíos se hace en la terminal).</p>
 <p><img src="img/bo-movil-cobrar.png" alt="Cobrar desde el celular"></p>
 <ul>
 <li>Funcionan igual que en la terminal; en el celular, Cobrar se ve como la pantalla de venta.</li>

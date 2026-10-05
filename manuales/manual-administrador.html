@@ -48,6 +48,7 @@ blockquote { margin: 16px 0; padding: 8px 16px; border-left: 4px solid var(--ace
 <li><a href="#m%C3%B3dulos">Módulos</a></li>
 <li><a href="#mesas">Mesas</a></li>
 <li><a href="#eventos-y-entradas">Eventos y entradas</a></li>
+<li><a href="#encomiendas">Encomiendas</a></li>
 <li><a href="#facturaci%C3%B3n-electr%C3%B3nica-ucfe">Facturación electrónica (UCFE)</a></li>
 <li><a href="#ventas">Ventas</a></li>
 <li><a href="#caja">Caja</a></li>
@@ -172,6 +173,7 @@ blockquote { margin: 16px 0; padding: 8px 16px; border-left: 4px solid var(--ace
 <ul>
 <li><strong>Eventos</strong>: venta y control de entradas.</li>
 <li><strong>Mesas</strong>: cuentas compartidas entre mozos, pagos divididos y propinas (para restaurantes).</li>
+<li><strong>Encomiendas</strong>: despacho de envíos entre locales con remito QR y seguimiento por agencia.</li>
 </ul>
 <p><img src="img/bo-modulos.png" alt="Módulos"></p>
 <p>Un módulo apagado no aparece en kaja-bo, y las terminales lo esconden del menú en su próxima sincronización (cada 15 minutos, o enseguida si el cajero toca &quot;Reportar terminal a kaja-bo&quot;).</p>
@@ -195,6 +197,11 @@ blockquote { margin: 16px 0; padding: 8px 16px; border-left: 4px solid var(--ace
 <p>La tabla <strong>Eventos</strong> muestra cada evento con su fecha, precio y cuántas entradas se vendieron.</p>
 <p><img src="img/bo-eventos.png" alt="Eventos"></p>
 <p>Las entradas se venden desde <strong><a href="#entradas">kaja-web → Entradas</a></strong>, y también se venden y se controlan desde la terminal (<a href="manual-cajero.html#eventos">manual del cajero</a>).</p>
+<h2 id="encomiendas">Encomiendas</h2>
+<p><strong>Operación → Encomiendas.</strong> Para agencias de envíos: cada <a href="#sucursales">sucursal</a> es una agencia. Primero prendé el módulo <strong>Encomiendas</strong> en <a href="#m%C3%B3dulos">Módulos</a>.</p>
+<p>Las encomiendas se despachan en la terminal (<strong>Encomiendas → Despachar</strong>), que cobra el envío si lo paga el que envía e imprime el remito con su QR. En destino se escanea el remito (<strong>Encomiendas → Escanear remito</strong>) para recepcionarla, cobrarla si la paga el que recibe y entregarla. El paso a paso está en el <a href="manual-cajero.html#encomiendas">manual del cajero</a>.</p>
+<p>La tabla muestra cada encomienda con su <strong>Código</strong>, <strong>Fecha</strong>, <strong>Origen → destino</strong>, remitente, destinatario, <strong>Monto</strong> (y quién pagó, o si falta cobrar al destinatario) y <strong>Estado</strong>. Filtrá por <strong>Desde</strong>, <strong>Hasta</strong> y <strong>Estado</strong>; tocá una fila para ver todos sus movimientos, con la agencia y el usuario de cada uno.</p>
+<p>Los estados son <strong>Despachada → En camino → Recepcionada → En reparto → Entregada</strong>. Para marcarla <strong>Entregada</strong> tiene que estar pagada y se anota quién la recibió. El cobro del envío es una venta normal: aparece en <a href="#ventas">Ventas</a>, en la caja y en los reportes.</p>
 <h2 id="facturación-electrónica-ucfe">Facturación electrónica (UCFE)</h2>
 <p><strong>Fiscal → UCFE.</strong> Acá van los datos que Uruware asigna al dar de alta el comercio en UCFE, y los datos del emisor que salen en cada comprobante.</p>
 <p><img src="img/bo-ucfe.png" alt="Configuración de UCFE"></p>
@@ -216,7 +223,7 @@ blockquote { margin: 16px 0; padding: 8px 16px; border-left: 4px solid var(--ace
 <li>Filtrá por <strong>Terminal</strong> o <strong>Sucursal</strong>, o marcá <strong>Solo diferencias sin revisar</strong>.</li>
 </ul>
 <h2 id="kaja-web-vender-desde-kaja-bo">kaja-web: vender desde kaja-bo</h2>
-<p><strong>kaja-web</strong> son las pantallas de la terminal, pero en kaja-bo: <strong>Cobrar</strong>, <strong>Anular</strong>, <strong>Devolver</strong>, <strong>Entradas</strong> (con el módulo Eventos) y <strong>Mesas</strong> (con el módulo Mesas). Sirven para vender desde una computadora o un celular, contra una terminal de cobro del comercio.</p>
+<p><strong>kaja-web</strong> son las pantallas de la terminal, pero en kaja-bo: <strong>Cobrar</strong>, <strong>Anular</strong>, <strong>Devolver</strong>, <strong>Entradas</strong> (con el módulo Eventos), <strong>Mesas</strong> (con el módulo Mesas) y <strong>Encomiendas</strong> (con el módulo Encomiendas). Sirven para vender desde una computadora o un celular, contra una terminal de cobro del comercio.</p>
 <ul>
 <li><strong>Quién las usa</strong>: el administrador, y también los <strong>cajeros</strong>: entrando a kaja-bo con su correo y la misma contraseña de la terminal, un cajero ve <strong>solo</strong> kaja-web (nada de reportes, productos ni configuración).</li>
 <li><strong>La terminal elegida</strong>: todas cobran con tarjeta en la terminal que se elige en <strong>Cobrar → Configurar terminal</strong>. La terminal muestra el cobro sola, no hace falta estar al lado. Anular, Devolver, Entradas y Mesas muestran arriba cuál es.</li>
@@ -261,6 +268,9 @@ blockquote { margin: 16px 0; padding: 8px 16px; border-left: 4px solid var(--ace
 <p><img src="img/bo-mesas-web-cobrar.png" alt="Cobrar una parte con propina"></p>
 <p>Si aparece <strong>&quot;ITD no confirmó el cobro. Revisá el pinpad antes de volver a cobrar.&quot;</strong>, mirá en la terminal si el cobro salió antes de repetirlo: esa parte queda &quot;cobrándose&quot; unos minutos.</p>
 <p>Con todo pagado, <strong>Cerrar mesa y emitir CFE</strong> emite <strong>un solo comprobante</strong> con todos los productos, descuenta el stock del local y deja la mesa libre. Una mesa sin productos (abierta por error) se cierra con <strong>Liberar mesa</strong>.</p>
+<h3 id="encomiendas-desde-kaja-web">Encomiendas desde kaja-web</h3>
+<p><strong>kaja-web → Encomiendas.</strong> Escribí el <strong>Código del remito</strong> y tocá <strong>Buscar</strong> (o <strong>Escanear</strong>, en el celular con Android). Aparece la encomienda con sus movimientos y un botón por cada estado al que puede pasar. <strong>Recepcionada</strong> queda en el local de la terminal elegida en Cobrar; <strong>Entregada</strong> pide quién la recibió.</p>
+<p>En kaja-web solo se cambia el estado: despachar y cobrar el envío se hace en la terminal.</p>
 <h3 id="límites-de-kaja-web">Límites de kaja-web</h3>
 <ul>
 <li><strong>No imprime</strong>: kaja-web emite el comprobante electrónico, pero no imprime ticket.</li>
