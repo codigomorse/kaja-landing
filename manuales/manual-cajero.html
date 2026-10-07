@@ -50,9 +50,9 @@ blockquote { margin: 16px 0; padding: 8px 16px; border-left: 4px solid var(--ace
 </ul>
 <h2 id="configurar-la-terminal">Configurar la terminal</h2>
 <p>Una terminal nueva hay que conectarla con kaja-bo <strong>escaneando el QR</strong> que el superadmin entregó al crear el comercio. La dirección de kaja-bo y la clave del comercio <strong>no se escriben a mano</strong>: solo se cargan con el QR.</p>
+<p>El <strong>número de terminal</strong> tampoco: kaja lo toma solo de la app de pagos de Fiserv al abrirse.</p>
 <ol>
 <li>En la pantalla de ingreso tocá el <strong>engranaje</strong> (arriba a la derecha) para abrir la <strong>Configuración</strong>.</li>
-<li>Escribí el <strong>Número de terminal</strong> (el que asigna Fiserv/ITD a esa terminal).</li>
 <li>Elegí cómo se cobra con tarjeta: <strong>App2App</strong> (la app de pagos de la misma terminal) o <strong>Fpinpad</strong> (un pinpad externo, con su IP). Si no sabés cuál, consultá con el técnico.</li>
 <li>Tocá <strong>Escanear QR de kaja-bo</strong> y apuntá la cámara al QR. Al leerlo, la pantalla dice <strong>&quot;kaja-bo configurado&quot;</strong>. Si dice &quot;QR no reconocido&quot;, ese no es el QR de configuración de kaja-bo.</li>
 <li>Tocá <strong>Guardar</strong>.</li>
@@ -306,7 +306,7 @@ blockquote { margin: 16px 0; padding: 8px 16px; border-left: 4px solid var(--ace
 <p><img src="img/kaja-configuracion.png" alt="Configuración de la terminal"></p>
 <ul>
 <li><strong>Tema oscuro</strong>: cambia los colores de la app.</li>
-<li><strong>Número de terminal</strong>, <strong>Fpinpad</strong> y <strong>App2App</strong>: ver <a href="#configurar-la-terminal">Configurar la terminal</a>.</li>
+<li><strong>Fpinpad</strong> y <strong>App2App</strong>: ver <a href="#configurar-la-terminal">Configurar la terminal</a>.</li>
 <li><strong>kaja-bo configurado / sin configurar</strong>: indica si la terminal ya tiene cargado el QR del comercio.</li>
 <li><strong>Escanear QR de kaja-bo</strong>: para conectar la terminal con su comercio (o cambiarla de comercio).</li>
 <li><strong>Reportar terminal a kaja-bo</strong>: fuerza la sincronización (catálogo, stock, tema, promociones). Sin tocarlo, la terminal sincroniza sola cada 15 minutos.</li>
