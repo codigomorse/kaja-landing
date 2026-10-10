@@ -89,6 +89,10 @@
     /* Son muchas secciones: van en una segunda fila, deslizable si no entran. */
     .nav-links { display: flex; gap: 22px; order: 3; flex-basis: 100%; overflow-x: auto; padding-bottom: 4px; }
     .nav-links a { font-weight: 700; font-size: 16px; text-decoration: none; white-space: nowrap; }
+    /* Difumina el borde derecho y muestra una flecha mientras queden secciones fuera de la vista. */
+    .nav-row { position: relative; }
+    .nav-row.hay-mas .nav-links { -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 72px), transparent); mask-image: linear-gradient(to right, #000 calc(100% - 72px), transparent); }
+    .nav-row.hay-mas::after { content: "›"; position: absolute; right: 32px; bottom: 10px; font-weight: 800; font-size: 24px; line-height: 1; pointer-events: none; }
     .nav-links a:hover { text-decoration: underline; text-decoration-thickness: 2.5px; text-underline-offset: 5px; }
 
     /* ---------- hero ---------- */
@@ -269,6 +273,7 @@
     }
     @media (max-width: 600px) {
       .wrap { padding: 0 18px; }
+      .nav-row.hay-mas::after { right: 18px; }
       section { padding: 60px 0; }
       .hero { padding: 40px 0 64px; }
       .stats-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 16px; }
@@ -967,5 +972,12 @@
   </div>
 </footer>
 
+<script>
+  const nav = document.querySelector('.nav-links');
+  const marcar = () => nav.parentElement.classList.toggle('hay-mas', nav.scrollLeft + nav.clientWidth < nav.scrollWidth - 1);
+  nav.addEventListener('scroll', marcar, { passive: true });
+  addEventListener('resize', marcar);
+  marcar();
+</script>
 </body>
 </html>
