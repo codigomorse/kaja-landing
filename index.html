@@ -95,6 +95,10 @@
     .video figcaption { padding: 16px 4px 0; }
     .video h2 { font-size: 22px; margin-bottom: 4px; }
     .video p { font-size: 15.5px; line-height: 1.5; color: var(--muted); }
+    /* Terminal y consola arriba, del mismo ancho que los módulos de abajo. */
+    .videos-dos { grid-template-columns: repeat(2, minmax(0, 340px)); justify-content: center; }
+    .videos-titulo { font-size: clamp(26px, 3.2vw, 36px); text-align: center; margin: 64px 0 6px; }
+    .videos-bajada { text-align: center; color: var(--muted); font-size: 17px; margin-bottom: 28px; }
 
     /* ---------- cta ---------- */
     .cta { text-align: center; padding: 52px 32px; background: var(--golden); }
@@ -167,7 +171,7 @@
 </section>
 
 <section id="videos">
-  <div class="wrap videos">
+  <div class="wrap videos videos-dos">
     <figure class="video">
       <div class="phone">
         <video src="assets/videos/venta.mp4" poster="assets/videos/venta.jpg" controls muted playsinline preload="metadata"></video>
@@ -186,13 +190,37 @@
         <p>Productos, stock por local y reportes, desde el navegador o el celular.</p>
       </figcaption>
     </figure>
+  </div>
+  <div class="wrap">
+    <h2 class="videos-titulo">Módulos</h2>
+    <p class="videos-bajada">Se prenden por comercio desde la consola, en la misma caja.</p>
+  </div>
+  <div class="wrap videos">
     <figure class="video">
       <div class="phone">
-        <video src="assets/videos/modulos.mp4" poster="assets/videos/modulos.jpg" controls muted playsinline preload="metadata"></video>
+        <video src="assets/videos/mesas.mp4" poster="assets/videos/mesas.jpg" controls muted playsinline preload="metadata"></video>
       </div>
       <figcaption>
-        <h2>Módulos</h2>
-        <p>Mesas, encomiendas y pasajes, en la misma caja.</p>
+        <h2>Mesas</h2>
+        <p>Cuentas abiertas por mesa y pago dividido, con propina.</p>
+      </figcaption>
+    </figure>
+    <figure class="video">
+      <div class="phone">
+        <video src="assets/videos/pasajes.mp4" poster="assets/videos/pasajes.jpg" controls muted playsinline preload="metadata"></video>
+      </div>
+      <figcaption>
+        <h2>Pasajes</h2>
+        <p>Elegís la salida y los asientos, y salen los boletos con QR.</p>
+      </figcaption>
+    </figure>
+    <figure class="video">
+      <div class="phone">
+        <video src="assets/videos/encomiendas.mp4" poster="assets/videos/encomiendas.jpg" controls muted playsinline preload="metadata"></video>
+      </div>
+      <figcaption>
+        <h2>Encomiendas</h2>
+        <p>Despacho con remito QR, cobrado en origen o en destino.</p>
       </figcaption>
     </figure>
   </div>
